@@ -10,7 +10,6 @@
 Bares::Bares()
 {
     /* Empty */
-    std::cout << "<< constructor! >>" << std::endl;
 }
 
 /********************************************//**
@@ -19,7 +18,6 @@ Bares::Bares()
 Bares::~Bares()
 {
 	/* Empty */
-	std::cout << "<< destructor! >>" << std::endl;
 }
 
 /********************************************//**
@@ -28,8 +26,6 @@ Bares::~Bares()
 string
 Bares::infix2Postfix( const string exp_ )
 {
-	std::cout << "<< Starting the conversion... >>" << std::endl;
-
 	/*! Declare a stack from our custom class */
 	Stack<char> S(exp_.length());
 
@@ -180,4 +176,100 @@ Bares::isOperand( const char char_ )
 
 	/*! It's not an operand */
 	return false;
+}
+
+/********************************************//**
+* Check whether a character is alphanumeric 
+* chanaracter.
+***********************************************/
+int
+Bares::performOperation( const char operator_, const int operand1_, const int operand2_ )
+{
+	/*! Sum */
+	if ( operator_ == '+' ) return operand1_ + operand2_;
+
+	/*! Subtraction */
+	else if ( operator_ == '-' ) return operand1_ - operand2_;
+
+	/*! Multiplication */
+	else if ( operator_ == '*' ) return operand1_ * operand2_;
+
+	/*! Division */
+	else if ( operator_ == '/' ) return operand1_ / operand2_;
+
+	/*! Division (int) */
+	else if ( operator_ == '%' ) return operand1_ % operand2_;
+
+	/*! Potentiation */
+	else if ( operator_ == '^' ) return operand1_ ^ operand2_;
+
+	/*! Cannot calculate */
+	else cout << "<< Unexpected Error >>\n";
+	return -1; 
+}
+
+/********************************************//**
+* Check whether a character is alphanumeric 
+* chanaracter.
+***********************************************/
+int
+Bares::parsePostfix( const string exp_ )
+{
+	// Declaring a Stack from Standard template library in C++. 
+	Stack<int> RES(exp_.length());
+
+	std::cout << "length: " << exp_.length() << std::endl;
+
+	for ( unsigned int i = 0; i < exp_.length(); ++i )
+	{
+		/*! Scanning each character from left. 
+		 *If character is a delimitter, move on. 
+		*/
+		if ( exp_[i] == ' ' || exp_[i] == ',') continue; 
+
+		/*! If character is operator, pop two elements from stack, 
+		 * perform operation and push the result back. 
+		*/
+		else if ( isOperator(exp_[i]) )
+		{
+			/*! Pop two operands */
+			int operand2 = RES.top(); RES.pop();
+			int operand1 = RES.top(); RES.pop();
+
+			/*! Perform operation */
+			int result = performOperation(exp_[i], operand1, operand2);
+
+			/*! Push back result of operation on stack. */
+			RES.push(result);
+		}
+		else if ( isOperand(exp_[i]) )
+		{
+			/*! Extract the numeric operand from the string
+			 * Keep incrementing i as long as you are getting a numeric digit.
+		 	*/
+			int operand = 0;
+
+			while ( i < exp_.length() && isOperand( exp_[i] ) )
+			{
+				/*! For a number with more than one digits, as we are scanning from left to right. 
+				 * Everytime , we get a digit towards right, we can multiply current total in operand by 10 
+				 * and add the new digit.
+			 	*/
+				operand = (operand*10) + (exp_[i] - '0'); 
+				i++;
+			}
+			/*! Finally, you will come out of while loop with i set to a non-numeric character or end of string
+			 * decrement i because it will be incremented in increment section of loop once again. 
+			 * We do not want to skip the non-numeric character by incrementing i twice.
+		 	*/
+			i--;
+
+			// Push operand on stack. 
+			RES.push(operand);
+			RES.print();
+		}
+	}
+
+	/*! If expression is in correct format, Stack will finally have one element. This will be the output */
+	return RES.top();
 }

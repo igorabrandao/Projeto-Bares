@@ -26,7 +26,8 @@ int main()
 	string postfix = obj.infix2Postfix(expression);
 
 	/*! Print the result */
-	cout << "Output = " << postfix << "\n";
+	cout << "Postfix = " << postfix << "\n";
+	cout << "Result = " << obj.parsePostfix(postfix) << "\n";
 
 	/*! Main return */
 	return 0;

@@ -32,6 +32,8 @@ using namespace std;
 // int getOperatorPrecedence( _operator )	--> Get the operator precedence
 // bool isOperator( _char )					--> Check whether a character is operator symbol
 // bool isOperand( _char )					--> Check whether a character is alphanumeric chanaracter
+// int performOperation( _operator, _operand1, _operand2 )	--> Perform an operation 
+// int parsePostfix( _exp )					--> Parse the postfix expression and return the output
 
 // ***********************ERRORS****************************
 // std::underflow_error thrown if needed.
@@ -56,6 +58,9 @@ class Bares
 
 		bool isOperator( const char _char );
 		bool isOperand( const char _char );
+
+		int performOperation( const char _operator, const int _operand1, const int _operand2 );
+		int parsePostfix( const string _exp );
 
 	/*!
      * Private section
