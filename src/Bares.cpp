@@ -10,6 +10,7 @@
 Bares::Bares()
 {
     /* Empty */
+    std::cout << "<< constructor! >>" << std::endl;
 }
 
 /********************************************//**
@@ -18,6 +19,7 @@ Bares::Bares()
 Bares::~Bares()
 {
 	/* Empty */
+	std::cout << "<< destructor! >>" << std::endl;
 }
 
 /********************************************//**
@@ -26,8 +28,10 @@ Bares::~Bares()
 string
 Bares::infix2Postfix( const string exp_ )
 {
+	std::cout << "<< Starting the conversion... >>" << std::endl;
+
 	/*! Declare a stack from our custom class */
-	Stack<char> S;
+	Stack<char> S(exp_.length());
 
 	/*! Initialize postfix as empty string */
 	string postfix = "";
@@ -46,7 +50,7 @@ Bares::infix2Postfix( const string exp_ )
 		{
 			while( !S.isEmpty() && S.top() != '(' && hasPriority(S.top(), exp_[i]) )
 			{
-				postfix+= S.top();
+				postfix += S.top();
 				S.pop();
 			}
 

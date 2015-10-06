@@ -64,7 +64,7 @@ class Bares
 
 		/*! Attributes */
 		string expression;	/*!< Expression to be evaluated */
-		char operators[8] = { '+', '-', '/', '*', '^', '%', '(', ')' };
+		char operators[8] = { '+', '-', '/', '*', '^', '%' };
 
 		/*! Disable copy constructor */
 		Bares( const Bares & ){ /* empty */ }
