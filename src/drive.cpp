@@ -56,6 +56,8 @@ int main(int argc, char const *argv[])
 
 		queue<string> expressao;
 		expressao = obj.transformaEmVetor(expression);
+		int result = obj.calculatesExpression( expressao );
+		cout << ">>> Resultado: " << result << endl;
 		/*! Convert the infix exp to postfix */
 		//string postfix = obj.infix2Postfix(expression);
 

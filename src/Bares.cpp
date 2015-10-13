@@ -164,12 +164,48 @@ Bares::isOperator( const char char_ )
 }
 
 /********************************************//**
+* Check whether a character is operator symbol.
+***********************************************/
+bool
+Bares::isOperator( const string _str )
+{
+	auto itr = _str.begin();
+	char char_ = *itr;
+	/*! Check all possible operators */	
+	for ( unsigned int i = 0; i < sizeof(operators); ++i )
+	{
+		if ( char_ == operators[i] )
+			return true;
+	}
+
+	return false;
+}
+
+/********************************************//**
 * Check whether a character is alphanumeric 
 * chanaracter.
 ***********************************************/
 bool
 Bares::isOperand( const char char_ )
 {
+	/*! Compare the char with possible operands */
+	if ( char_ >= '0' && char_ <= '9' ) return true;
+	if ( char_ >= 'a' && char_ <= 'z' ) return true;
+	if ( char_ >= 'A' && char_ <= 'Z' ) return true;
+
+	/*! It's not an operand */
+	return false;
+}
+
+/********************************************//**
+* Check whether a character is alphanumeric 
+* chanaracter.
+***********************************************/
+bool
+Bares::isOperand( const string _str )
+{
+	auto itr = _str.begin();
+	char char_ = *itr;
 	/*! Compare the char with possible operands */
 	if ( char_ >= '0' && char_ <= '9' ) return true;
 	if ( char_ >= 'a' && char_ <= 'z' ) return true;
@@ -360,17 +396,17 @@ Bares::transformaEmVetor( const string _exp )
 /**
  * Calculates and evaluates the expression.
  */
-double 
+int 
 Bares::calculatesExpression( queue<string> _fila ) 
 {
  	string symbol;	/*!< Receives one member of the expression for be checked. */
  	stack<double> stk;	/*!< Auxiliary stack to calculate the expression */
 
  	/*! Operands. */
- 	double firstOperand;
- 	double secondOperand;
+ 	int firstOperand;
+ 	int secondOperand;
 
- 	double result;	/*!< Store the result of the expression */
+ 	int result;	/*!< Store the result of the expression */
  	
  	/*! If the queue is n't empty, calculate the expression */
  	while ( !_fila.empty() ) 
@@ -410,8 +446,9 @@ Bares::calculatesExpression( queue<string> _fila )
  			/* Removes the operand of the top stack. */
 	 		stk.pop();
 
+	 		char symb = symbol[0];
 			/* Receives the result of the operation. */
-			result = applyingOperation( firstOperand, secondOperand, symbol );
+			result = performOperation( symb, firstOperand, secondOperand );
 
 			stk.push( result );	/*!< Adds the result in the stack */
 		}
