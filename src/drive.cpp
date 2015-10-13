@@ -8,6 +8,8 @@
 
 using namespace std;
 
+#define DEBUG
+
 int main(int argc, char const *argv[])
 {
 	/*! Create an instance from Bares class */
@@ -21,12 +23,25 @@ int main(int argc, char const *argv[])
 
 		myExpressions = obj.readExpressions( filename );
 
+		string postfix;
+		
+
+		#ifdef DEBUG
 		// DEGUG
+		cout << "imprimindo arquivo de entrada "<< endl;
 		/*! Print the vector */
 		for( size_t i(0); i < myExpressions.size(); ++i )
 		{
 			cout << myExpressions[i] << endl;
 		}
+		#endif
+
+		for( size_t i(0); i < myExpressions.size(); ++i )
+		{
+			postfix = obj.infix2Postfix( myExpressions[ i ] );
+			cout << postfix << endl;
+		}
+
 	}
 	else
 	{

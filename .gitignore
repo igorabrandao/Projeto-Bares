@@ -1,2 +1,2 @@
-./bin/bares
-./src/*.o
+bin/bares
+src/*.o
