@@ -27,7 +27,7 @@ string
 Bares::infix2Postfix( const string exp_ )
 {
 	/*! Declare a stack from our custom class */
-	Stack<char> S(exp_.length());
+	stack<char> S;//(exp_.length());
 
 	/*! Initialize postfix as empty string */
 	string postfix = "";
@@ -44,7 +44,7 @@ Bares::infix2Postfix( const string exp_ )
 		*/
 		else if ( isOperator(exp_[i]) )
 		{
-			while( !S.isEmpty() && S.top() != '(' && hasPriority(S.top(), exp_[i]) )
+			while( !S.empty() && S.top() != '(' && hasPriority(S.top(), exp_[i]) )
 			{
 				postfix += S.top();
 				S.pop();
@@ -65,7 +65,7 @@ Bares::infix2Postfix( const string exp_ )
 		/*! If character is an parentheses closer */
 		else if ( exp_[i] == ')' )
 		{
-			while( !S.isEmpty() && S.top() !=  '(' )
+			while( !S.empty() && S.top() !=  '(' )
 			{
 				postfix += S.top();
 				S.pop();
@@ -75,12 +75,13 @@ Bares::infix2Postfix( const string exp_ )
 		}
 	}
 
-	while( !S.isEmpty() )
+	while( !S.empty() )
 	{
 		postfix += S.top();
 		S.pop();
 	}
 
+	cout << "expressão convertida em posfix = " << postfix << endl;
 	return postfix;
 }
 
@@ -216,7 +217,7 @@ int
 Bares::parsePostfix( const string exp_ )
 {
 	// Declaring a Stack from Standard template library in C++. 
-	Stack<int> RES(exp_.length());
+	stack<int> RES;//(exp_.length());
 
 	std::cout << "length: " << exp_.length() << std::endl;
 
@@ -266,7 +267,7 @@ Bares::parsePostfix( const string exp_ )
 
 			// Push operand on stack. 
 			RES.push(operand);
-			RES.print();
+			//RES.print();
 		}
 	}
 
@@ -309,4 +310,118 @@ Bares::readExpressions( const string _filename )
 
 	/*! returns the vector containing all expressions */
 	return tempVector;
+}
+
+/*****************************************************************//**
+* @brief transforms an infix expression in an array	
+* where each position is an operator or an operand.
+* @param _exp one infix expression 		
+* @returns an array where each position is an operator or an operand. 		
+*********************************************************************/
+queue<string>
+Bares::transformaEmVetor( const string _exp )
+{
+	queue<string> expression;
+	//stack<string> expression;
+	//vector<string> expression;
+
+	string str;
+	string opr;
+
+	for(auto itr( _exp.begin() ); itr < _exp.end(); ++itr )
+	{
+		if( isOperand( *itr ) )
+		{
+			str = str + *itr;
+		}
+		else
+		{
+			if( str != "" )
+				expression.push(str);
+			
+			opr = *itr;
+			expression.push(opr);
+			str = "";
+		}
+	}
+	if( str != "" )
+			expression.push(str);
+
+	/*
+	for (size_t i = 0; i < expression.size() ; ++i)
+	{
+		cout << expression[ i ] << " ";
+	}
+	*/
+
+	return expression;
+}
+
+/**
+ * Calculates and evaluates the expression.
+ */
+double 
+Bares::calculatesExpression( queue<string> _fila ) 
+{
+ 	string symbol;	/*!< Receives one member of the expression for be checked. */
+ 	stack<double> stk;	/*!< Auxiliary stack to calculate the expression */
+
+ 	/*! Operands. */
+ 	double firstOperand;
+ 	double secondOperand;
+
+ 	double result;	/*!< Store the result of the expression */
+ 	
+ 	/*! If the queue is n't empty, calculate the expression */
+ 	while ( !_fila.empty() ) 
+ 	{
+ 		symbol = _fila.front(); 	/*!< Receives the first member of the queue */
+
+ 		/*! Since symb is the first element, we remove it from the queue. */
+ 		_fila.pop();
+
+ 		/*! If the member is operand. */
+ 		if ( isOperand( symbol ) ) 
+ 		{
+			try
+			{
+				/* Adds the operand in the stack. */
+				stk.push( std::stod( symbol ) );
+
+			/* If occur an error. */
+			} 
+			catch ( std::exception& e ) 
+			{
+				/* ERROR. */
+				throw std::out_of_range(" ERROR Value out of bounds. ");
+			}
+ 		}
+
+ 		/* If the stack size is greater than one, and symb is an operator. */
+		if ( stk.size() > 1 && isOperator( symbol ) ) 
+		{
+ 			/* Receives the second operand of the top stack. */
+ 			secondOperand = stk.top();
+ 			/* Removes the operand of the top stack. */
+ 			stk.pop();
+
+ 			/* Receives the first operand of the top stack */
+ 			firstOperand = stk.top();
+ 			/* Removes the operand of the top stack. */
+	 		stk.pop();
+
+			/* Receives the result of the operation. */
+			result = applyingOperation( firstOperand, secondOperand, symbol );
+
+			stk.push( result );	/*!< Adds the result in the stack */
+		}
+ 	}
+
+ 	/* Receives the result, top stack. */
+ 	result = stk.top();
+ 	/* Removes the result of the stack. */
+ 	stk.pop();
+ 	
+ 	/* Return the result. */
+ 	return result;
 }

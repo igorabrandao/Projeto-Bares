@@ -21,9 +21,11 @@
 
 #include <iostream>
 #include <string>
-#include "Stack.h"
+//#include "Stack.h"
+#include <stack>
 #include <vector>
 #include <fstream> // ifstream
+#include <queue>
 
 using namespace std;
 
@@ -65,6 +67,8 @@ class Bares
 		int parsePostfix( const string _exp );
 		void loadFile( const string _filename );
 		vector<string> readExpressions( const string _filename );
+		queue<string> transformaEmVetor( const string _exp );
+		double calculatesExpression( queue<string> _fila );
 
 	/*!
      * Private section

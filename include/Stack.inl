@@ -8,7 +8,7 @@
 * constructor
 ***********************************************/
 template <typename T>
-Stack<T>::Stack()
+stack<T>::stack()
 {
     /* Empty */
 }
@@ -17,7 +17,7 @@ Stack<T>::Stack()
 * constructor overload
 ***********************************************/
 template <typename T>
-Stack<T>::Stack( int sz_ )
+stack<T>::stack( int sz_ )
 {
 	/*! Initial settings */
     iSz = sz_;
@@ -31,7 +31,7 @@ Stack<T>::Stack( int sz_ )
 * destructor
 ***********************************************/
 template <typename T>
-Stack<T>::~Stack()
+stack<T>::~stack()
 {
 	/*! Delete the elements */
     delete [] items;
@@ -44,7 +44,7 @@ Stack<T>::~Stack()
 ***********************************************/
 template <typename T>
 void
-Stack<T>::push( const T & x_ )
+stack<T>::push( const T & x_ )
 {
 	/*! Check if the stack is full */
 	if ( isFull() )
@@ -64,10 +64,10 @@ Stack<T>::push( const T & x_ )
 ***********************************************/
 template <typename T>
 const T &
-Stack<T>::pop()
+stack<T>::pop()
 {
 	/*! Check if the stack is empty */
-	if ( isEmpty() )
+	if ( empty() )
 	{
 		/*! Error message */
 		throw std::underflow_error("<< Stack is Empty! >>");
@@ -83,10 +83,10 @@ Stack<T>::pop()
 ***********************************************/
 template <typename T>
 const T &
-Stack<T>::top()
+stack<T>::top()
 {
 	/*! Check if the stack is empty */
-	if ( isEmpty() )
+	if ( empty() )
 	{
 		/*! Error message */
 		throw std::underflow_error("<< Stack is Empty! >>");
@@ -106,10 +106,10 @@ Stack<T>::top()
 ***********************************************/
 template <typename T>
 void
-Stack<T>::makeEmpty()
+stack<T>::makeEmpty()
 {
 	/*! Check while stack is empty */
-	while ( !isEmpty() )
+	while ( !empty() )
 	{
 		/*! Remove all elements */
 		pop();
@@ -121,7 +121,7 @@ Stack<T>::makeEmpty()
 ***********************************************/
 template <typename T>
 void
-Stack<T>::print()
+stack<T>::print()
 {
 	std::cout << "<< [ ";
 

@@ -54,12 +54,14 @@ int main(int argc, char const *argv[])
 		/*! Read the input */
 		getline(cin, expression);
 
+		queue<string> expressao;
+		expressao = obj.transformaEmVetor(expression);
 		/*! Convert the infix exp to postfix */
-		string postfix = obj.infix2Postfix(expression);
+		//string postfix = obj.infix2Postfix(expression);
 
 		/*! Print the result */
-		cout << "Postfix = " << postfix << "\n";
-		cout << "Result = " << obj.parsePostfix(postfix) << "\n";
+		//cout << "Postfix = " << postfix << "\n";
+		//cout << "Result = " << obj.parsePostfix(postfix) << "\n";
 	}
 	/*! Main return */
 	return 0;
