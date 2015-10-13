@@ -1,29 +1,19 @@
 # README #
+** Visão Geral**
+O projeto bares é um programa voltado a avaliação de expressões numéricas
+o projeto foi desenvilvido como parte da avaliação das disciplinas de estrura de dados I e Linguagem de programação I
+ambas ministradas pelo professor Selan Rodrigues dos Santos pela universidade federal do rio grande do norte (UFRN)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Como compilar ###
+* Use o makefile digitando o comando **'make'** pelo terminal, após ter navegado para a pasta do projeto.
 
-### What is this repository for? ###
+### COMO EXECUTAR O PROGRAMA ###
+Exitem duas formas de se rodar o programa a primeira é executando o programa sem parametros, então ele pedira
+ao usuário que digite sua propria expressão, a segunda forma é passando por parametro o arquivo de entrada
+exemplos:
+* ./bin/bares
+* ./bin/bares input.dat
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+### Membros da equipe ###
+* Igor A. Brandão
+* Leandro Antonio F. Silva
