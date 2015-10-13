@@ -273,3 +273,40 @@ Bares::parsePostfix( const string exp_ )
 	/*! If expression is in correct format, Stack will finally have one element. This will be the output */
 	return RES.top();
 }
+
+/********************************************//**
+* @brief Read the expressions of an input file
+* @param filename the name of the input file
+* @returns an array with all the expressions 
+***********************************************/
+vector<string> 
+Bares::readExpressions( const string _filename )
+{
+	/*! Vector that stores all the expressions.*/
+	vector<string> tempVector;
+
+	/*! Opens the input file */
+	ifstream file( "assets/data/" + _filename);
+
+	/*! if the input file does not open */
+	if( !file.is_open() )
+	{
+		/*! Show a error message */
+		cout << "Erro!!! [ " << _filename << " ], does not open " << endl;
+	}
+	else /*!< Opened the file with success */
+	{
+		/*! Temporary auxiliar string to helps to read expression by expression */
+		string str;
+
+		/*! While there are expressions*/
+        while( getline( file, str ) )
+        {
+        	/*! Insert the expression in the vector */
+        	tempVector.push_back(str);
+        }
+	}
+
+	/*! returns the vector containing all expressions */
+	return tempVector;
+}

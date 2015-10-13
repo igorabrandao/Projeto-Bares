@@ -22,6 +22,8 @@
 #include <iostream>
 #include <string>
 #include "Stack.h"
+#include <vector>
+#include <fstream> // ifstream
 
 using namespace std;
 
@@ -61,6 +63,8 @@ class Bares
 
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
 		int parsePostfix( const string _exp );
+		void loadFile( const string _filename );
+		vector<string> readExpressions( const string _filename );
 
 	/*!
      * Private section

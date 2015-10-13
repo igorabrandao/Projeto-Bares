@@ -8,27 +8,44 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
 	/*! Create an instance from Bares class */
 	Bares obj;
 
-	/*! Store the input expression */
-	string expression; 
+	/*! If the user has passed the input file as a parameter */
+	if( argc == 2 )
+	{
+		vector<string> myExpressions; 	/*!< Vector that stores all the expressions*/
+		string filename = argv[ 1 ]; 	/*!< Gets its name from the input file*/
 
-	/*! Message to user */
-	cout << "Enter Infix Expression \n";
+		myExpressions = obj.readExpressions( filename );
 
-	/*! Read the input */
-	getline(cin, expression);
+		// DEGUG
+		/*! Print the vector */
+		for( size_t i(0); i < myExpressions.size(); ++i )
+		{
+			cout << myExpressions[i] << endl;
+		}
+	}
+	else
+	{
+		/*! Store the input expression */
+		string expression; 
 
-	/*! Convert the infix exp to postfix */
-	string postfix = obj.infix2Postfix(expression);
+		/*! Message to user */
+		cout << "Enter Infix Expression \n";
 
-	/*! Print the result */
-	cout << "Postfix = " << postfix << "\n";
-	cout << "Result = " << obj.parsePostfix(postfix) << "\n";
+		/*! Read the input */
+		getline(cin, expression);
 
+		/*! Convert the infix exp to postfix */
+		string postfix = obj.infix2Postfix(expression);
+
+		/*! Print the result */
+		cout << "Postfix = " << postfix << "\n";
+		cout << "Result = " << obj.parsePostfix(postfix) << "\n";
+	}
 	/*! Main return */
 	return 0;
 }
