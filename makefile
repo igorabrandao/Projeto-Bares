@@ -22,3 +22,13 @@ $(APP): $(OBJECTS)
 
 .cpp.o:
 	$(CC) $< -o $@ $(CFLAGS) -I$(INC_DIR)
+
+.PHONY: clean
+clean:
+	rm $(OBJECTS) $(APP)
+
+exe:
+	$(APP)
+
+val:
+	valgrind $(APP)

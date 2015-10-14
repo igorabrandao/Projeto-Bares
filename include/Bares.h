@@ -21,7 +21,13 @@
 
 #include <iostream>
 #include <string>
-#include "Stack.h"
+//#include "Stack.h"
+#include <stack>
+#include <vector>
+#include <fstream> // ifstream
+#include <queue>
+#include <stdexcept>
+#include <cmath>
 
 using namespace std;
 
@@ -57,11 +63,18 @@ class Bares
 		int getOperatorPrecedence( const char _operator );
 
 		bool isOperator( const char _char );
+		bool isOperator( const string _str );
 		bool isOperand( const char _char );
+		bool isOperand( const string _str );
 
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
 		int parsePostfix( const string _exp );
-
+		void loadFile( const string _filename );
+		vector<string> readExpressions( const string _filename );
+		queue<string> stringToQueue( const string _exp );
+		int calculatesExpression( queue<string> _fila );
+		queue<string> infixToPostfix( const string _exp );
+		void printQueue( queue<string> _queue );
 	/*!
      * Private section
     */

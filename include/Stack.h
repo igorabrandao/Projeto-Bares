@@ -35,7 +35,7 @@
 
 /*! LifeScreen template class */
 template <class T>
-class Stack
+class stack
 {
 	/*!
      * Public section
@@ -43,16 +43,16 @@ class Stack
 	public:
 
 		/*! Functions */
-        Stack();   			/*!< Constructor */
-        Stack( int sz_ );   /*!< Constructor overload */
-        ~Stack();  			/*!< Destructor */
+        stack();   			/*!< Constructor */
+        stack( int sz_ );   /*!< Constructor overload */
+        ~stack();  			/*!< Destructor */
 
 		/*! Basic members */
 		void push( const T & _x );
 		const T & pop( );
 		const T & top();
 
-		bool isEmpty( ) { return (iTop == -1); }
+		bool empty( ) { return (iTop == -1); }
 		bool isFull( ) { return (iTop + 1 == iSz); }
 		void makeEmpty( );
 		void print( );
@@ -68,7 +68,7 @@ class Stack
 		T* items;	/*!< A pointer to stack items */
 
 		/*! Disable copy constructor */
-		Stack( const Stack & ){ /* empty */ }
+		stack( const stack & ){ /* empty */ }
 };
 
 #include "Stack.inl"
