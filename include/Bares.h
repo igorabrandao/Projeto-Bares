@@ -27,6 +27,7 @@
 #include <fstream> // ifstream
 #include <queue>
 #include <stdexcept>
+#include <cmath>
 
 using namespace std;
 
@@ -70,9 +71,10 @@ class Bares
 		int parsePostfix( const string _exp );
 		void loadFile( const string _filename );
 		vector<string> readExpressions( const string _filename );
-		queue<string> transformaEmVetor( const string _exp );
+		queue<string> stringToQueue( const string _exp );
 		int calculatesExpression( queue<string> _fila );
-
+		queue<string> infixToPostfix( const string _exp );
+		void printQueue( queue<string> _queue );
 	/*!
      * Private section
     */

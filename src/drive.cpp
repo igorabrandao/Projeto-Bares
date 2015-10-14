@@ -54,9 +54,10 @@ int main(int argc, char const *argv[])
 		/*! Read the input */
 		getline(cin, expression);
 
-		queue<string> expressao;
-		expressao = obj.transformaEmVetor(expression);
-		int result = obj.calculatesExpression( expressao );
+		//obj.infixToPostfix( expression )
+		//queue<string> expressao;
+		//expressao = obj.transformaEmVetor(expression);
+		int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
 		cout << ">>> Resultado: " << result << endl;
 		/*! Convert the infix exp to postfix */
 		//string postfix = obj.infix2Postfix(expression);

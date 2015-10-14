@@ -133,15 +133,19 @@ Bares::getOperatorPrecedence( const char operator_ )
 		case '+':
 		case '-':
 			precedence = 1;
+			break;
 		case '*':
 		case '/':
 		case '%':
 			precedence = 2;
+			break;
 		case '^':
 			precedence = 3;
+			break;
 		case '(':
 		case ')':
-			precedence = 4;
+			precedence = 0;
+			break;
 	}
 
 	return precedence;
@@ -238,7 +242,7 @@ Bares::performOperation( const char operator_, const int operand1_, const int op
 	else if ( operator_ == '%' ) return operand1_ % operand2_;
 
 	/*! Potentiation */
-	else if ( operator_ == '^' ) return operand1_ ^ operand2_;
+	else if ( operator_ == '^' ) return pow(operand1_, operand2_);
 
 	/*! Cannot calculate */
 	else cout << "<< Unexpected Error >>\n";
@@ -355,7 +359,7 @@ Bares::readExpressions( const string _filename )
 * @returns an array where each position is an operator or an operand. 		
 *********************************************************************/
 queue<string>
-Bares::transformaEmVetor( const string _exp )
+Bares::stringToQueue( const string _exp )
 {
 	queue<string> expression;
 	//stack<string> expression;
@@ -382,13 +386,6 @@ Bares::transformaEmVetor( const string _exp )
 	}
 	if( str != "" )
 			expression.push(str);
-
-	/*
-	for (size_t i = 0; i < expression.size() ; ++i)
-	{
-		cout << expression[ i ] << " ";
-	}
-	*/
 
 	return expression;
 }
@@ -461,4 +458,114 @@ Bares::calculatesExpression( queue<string> _fila )
  	
  	/* Return the result. */
  	return result;
+}
+
+/********************************************//**
+* Convert infix to postfix exp_s.
+***********************************************/
+queue<string>
+Bares::infixToPostfix( const string _exp )
+{
+	string symbol;					/*!< The current symbol to be classified */
+	string topSymbol;					/*!< O simbolo do top da pila de operadores */
+	queue<string> _inputQueue;		/*!< The queue with the input expression */
+	queue<string> outputQueue; 		/*!< Lista de saida com o formato posfixo */
+	stack<string> stackOfOperators;	/*!< Stack of operators */
+
+	_inputQueue = stringToQueue( _exp );
+
+	/*! Enquanto não chegar ao fim da fila de entrada faca */
+	while( !_inputQueue.empty() )
+	{
+		/** Remover o simbolo da lista de entrada e armazenar em symbol */
+		symbol = _inputQueue.front();
+		_inputQueue.pop();
+
+		/*! Se symbol for operando... entao */
+		if ( isOperand( symbol ) )
+		{
+			/* Enviar symbol direto para a fila de saida */
+			outputQueue.push( symbol );
+		}
+		else if( symbol == "(" ) /*!< Caso o symbol seja um abre parenteses */
+		{
+			/*! Joga o symbol na pilha */
+			stackOfOperators.push( symbol );
+		}
+		else 	/* Se symbol nao for operando nem abre parenteses */
+		{	
+			/*! 
+			 *	Se a pilha de operadores nao esta vazia 
+			 *	topSymbol recebe pela primeira vez o elemento do topo para poder
+			 * 	entrar no proximo while
+			 */
+			if(!stackOfOperators.empty() )
+			{
+				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
+				topSymbol = stackOfOperators.top();
+			}
+
+			auto itrA = topSymbol.begin();
+			auto itrB = symbol.begin();
+
+			char _topSymbol = *itrA;
+			char _symbol 	= *itrB;
+			/*!
+			 * 	Enquanto a pilha de operadores nao estiver vazia 
+			 *	e o simbolo do topo (topSymbol) ≥ symb faca... 
+			 */
+			while( !stackOfOperators.empty() && hasPriority( _topSymbol, _symbol ) )
+			{
+				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
+				topSymbol = stackOfOperators.top();
+
+				/* Se o simbolo do topo da pilha nao for parentesis */
+				if( topSymbol != "(" && topSymbol != ")" )
+				{
+					outputQueue.push( topSymbol );	/*!< Insere o simbolo do topo da pilha na fila de saida */
+					stackOfOperators.pop(); 		/*!< Remove o operador ja utilizado da pilha */
+				}
+				else /*!< Se for um parentesis, apenas o retira da pilha */
+				{
+					stackOfOperators.pop();
+				}	
+			}
+
+			/*! Empilhar symbol depois que retirar operadores de precedencia ≥ */
+			stackOfOperators.push( symbol );
+		}
+	}
+
+	/*! Descarregar operadores remanescentes da pilha e manda-los para a fila de saida */
+	while( !stackOfOperators.empty() )
+	{
+		/*! Remover simbolo da pilha e enviar para fila de saida */
+		topSymbol = stackOfOperators.top();
+		stackOfOperators.pop();
+		/*! Os simbolos parenteses nao entram para a fila de saida */
+		if( topSymbol != "(" && topSymbol != ")" )
+		{
+			outputQueue.push( topSymbol ); /*! Se nao for parentesis, vai para a fila de saida */
+		}
+	}
+
+	/*! Print the output queue */
+	printQueue(outputQueue);
+	
+	/*! Returns the queue in a posfix format */
+	return outputQueue;
+}
+
+void
+Bares::printQueue( queue<string> _queue )
+{
+	string str;
+	cout << "[ ";
+	while( !_queue.empty() )
+	{
+		str = _queue.front();
+		cout << str << " ";
+		_queue.pop();
+	}
+	cout << "]" << endl;
 }
