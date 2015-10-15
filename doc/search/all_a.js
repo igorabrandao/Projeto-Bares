@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7ebares',['~Bares',['../df/dd8/classBares.html#afd7a95671976cd954aa8f31a77c4b0d5',1,'Bares']]],
-  ['_7estack',['~stack',['../d1/dc2/classstack.html#ace7791b755d237a7c48db0114eec1df9',1,'stack']]]
+  ['queue',['Queue',['../d7/d56/classQueue.html',1,'Queue&lt; T &gt;'],['../d7/d56/classQueue.html#af73bb29c868f7b37f369c668f114bd9f',1,'Queue::Queue()']]]
 ];

@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	Bares obj;
 
 	/*! If the user has passed the input file as a parameter */
-	if( argc == 2 )
+	if ( argc == 2 )
 	{
 		vector<string> myExpressions; 	/*!< Vector that stores all the expressions*/
 		string filename = argv[ 1 ]; 	/*!< Gets its name from the input file*/
@@ -24,28 +24,34 @@ int main(int argc, char const *argv[])
 		myExpressions = obj.readExpressions( filename );
 
 		string postfix;
-		
 
 		#ifdef DEBUG
-		// DEGUG
-		cout << "imprimindo arquivo de entrada "<< endl;
-		/*! Print the vector */
-		for( size_t i(0); i < myExpressions.size(); ++i )
-		{
-			cout << myExpressions[i] << endl;
-		}
-		cout << "####Fim do arquivo de entrada" << endl;
+
+			// DEGUG
+			cout << "printing input file "<< endl;
+
+			/*! Print the vector */
+			for ( size_t i(0); i < myExpressions.size(); ++i )
+			{
+				cout << myExpressions[i] << endl;
+			}
+
+			cout << "####End of input file" << endl;
+
 		#endif
 
 		for ( size_t i(0); i < myExpressions.size(); ++i )
 		{
-			cout << ">>> Expressao: " << myExpressions[ i ] << endl;
+			cout << "-------------------------------------------------------" << endl;
+			cout << ">>> Expression: " << obj.trim(myExpressions[i]) << endl;
+
 			/*! Se não tiver erros de sintaxe */
-			if (!obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
+			if ( !obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
 			{
-				int result = obj.calculatesExpression( obj.infixToPostfix( myExpressions[ i ] ) );
-				cout << ">>> Resultado: " << result << endl;
+				int result = obj.calculatesExpression( obj.infixToPostfix( myExpressions[i]) );
+				cout << ">>> Result: " << result << endl;
 			}
+			cout << "-------------------------------------------------------" << endl << endl;
 		}
 
 	}
@@ -63,10 +69,13 @@ int main(int argc, char const *argv[])
 		/*! Se não tiver erros de sintaxe */
 		if ( !obj.hasSyntaxError( obj.stringToQueue( expression ) ) )
 		{
+			cout << "-------------------------------------------------------" << endl;
 			int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
-			cout << ">>> Resultado: " << result << endl;
+			cout << ">>> Result: " << result << endl << endl;
+			cout << "-------------------------------------------------------" << endl << endl;
 		}
 	}
+
 	/*! Main return */
 	return 0;
 }

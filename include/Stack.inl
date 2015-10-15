@@ -8,7 +8,7 @@
 * constructor
 ***********************************************/
 template <typename T>
-stack<T>::stack()
+Stack<T>::Stack()
 {
     /* Empty */
 }
@@ -17,13 +17,13 @@ stack<T>::stack()
 * constructor overload
 ***********************************************/
 template <typename T>
-stack<T>::stack( int sz_ )
+Stack<T>::Stack( int sz_ )
 {
 	/*! Initial settings */
     iSz = sz_;
 	iTop = -1;
 
-	/*! Allocate the stack itself */
+	/*! Allocate the Stack itself */
 	items = new T[iSz];
 }
 
@@ -31,22 +31,22 @@ stack<T>::stack( int sz_ )
 * destructor
 ***********************************************/
 template <typename T>
-stack<T>::~stack()
+Stack<T>::~Stack()
 {
 	/*! Delete the elements */
     delete [] items;
 }
 
 /********************************************//**
-* Inserts a new element at the top of the stack, 
+* Inserts a new element at the top of the Stack, 
 * above its current top element. The content of 
 * this new element is initialized to a copy of val.
 ***********************************************/
 template <typename T>
 void
-stack<T>::push( const T & x_ )
+Stack<T>::push( const T & x_ )
 {
-	/*! Check if the stack is full */
+	/*! Check if the Stack is full */
 	if ( isFull() )
 	{
 		/*! Error message */
@@ -59,14 +59,14 @@ stack<T>::push( const T & x_ )
 }
 
 /********************************************//**
-* Removes the element on top of the stack, 
+* Removes the element on top of the Stack, 
 * effectively reducing its size by one.
 ***********************************************/
 template <typename T>
 const T &
-stack<T>::pop()
+Stack<T>::pop()
 {
-	/*! Check if the stack is empty */
+	/*! Check if the Stack is empty */
 	if ( empty() )
 	{
 		/*! Error message */
@@ -83,9 +83,9 @@ stack<T>::pop()
 ***********************************************/
 template <typename T>
 const T &
-stack<T>::top()
+Stack<T>::top()
 {
-	/*! Check if the stack is empty */
+	/*! Check if the Stack is empty */
 	if ( empty() )
 	{
 		/*! Error message */
@@ -101,14 +101,14 @@ stack<T>::top()
 
 
 /********************************************//**
-* Check if the stack is empty.
+* Check if the Stack is empty.
 * Returns true to empty or false if not.
 ***********************************************/
 template <typename T>
 void
-stack<T>::makeEmpty()
+Stack<T>::makeEmpty()
 {
-	/*! Check while stack is empty */
+	/*! Check while Stack is empty */
 	while ( !empty() )
 	{
 		/*! Remove all elements */
@@ -117,15 +117,15 @@ stack<T>::makeEmpty()
 }
 
 /********************************************//**
-* Print the stack
+* Print the Stack
 ***********************************************/
 template <typename T>
 void
-stack<T>::print()
+Stack<T>::print()
 {
 	std::cout << "<< [ ";
 
-	/*! Check while stack is empty */
+	/*! Check while Stack is empty */
 	for ( int i = 0; i <= iTop; ++i )
 	{
 		if ( i == (iTop) )

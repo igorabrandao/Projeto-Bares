@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['titlescreen',['TitleScreen',['../d4/d6e/classTitleScreen.html',1,'TitleScreen'],['../d4/d6e/classTitleScreen.html#a7aa7add9040c34b655bcde4cd6e758f2',1,'TitleScreen::TitleScreen()']]]
+  ['readexpressions',['readExpressions',['../df/dd8/classBares.html#ad9f0d39d8d9deb9c6be98da6867e7436',1,'Bares']]]
 ];
