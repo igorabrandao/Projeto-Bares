@@ -4,11 +4,11 @@ O projeto bares é um programa voltado a avaliação de expressões numéricas
 o projeto foi desenvilvido como parte da avaliação das disciplinas de estrura de dados I e Linguagem de programação I
 ambas ministradas pelo professor Selan Rodrigues dos Santos pela universidade federal do rio grande do norte (UFRN)
 
-### Membros da equipe ###
+### MEMBBROS DA EQUIPE ###
 * Igor A. Brandão
 * Leandro Antonio F. Silva
 
-### Como compilar ###
+### COMO COMPILAR ###
 * Use o makefile digitando o comando **'make'** pelo terminal, após ter navegado para a pasta do projeto.
 
 ### COMO EXECUTAR O PROGRAMA ###
