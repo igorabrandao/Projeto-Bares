@@ -30,7 +30,7 @@ Bares::infixToPostfix( const string _exp )
 	string topSymbol;				/*!< Top symbom from top queue */
 	queue<string> _inputQueue;		/*!< The queue with the input expression */
 	queue<string> outputQueue; 		/*!< Output list with postfix format */
-	stack<string> stackOfOperators;	/*!< stack of operators */
+	Stack<string> StackOfOperators;	/*!< Stack of operators */
 
 	_inputQueue = stringToQueue( _exp );
 
@@ -50,7 +50,7 @@ Bares::infixToPostfix( const string _exp )
 		else if ( symbol == "(" ) /*!< Caso o symbol seja um abre parenteses */
 		{
 			/*! Joga o symbol na pilha */
-			stackOfOperators.push( symbol );
+			StackOfOperators.push( symbol );
 		}
 		else 	/* Se symbol nao for operando nem abre parenteses */
 		{	
@@ -59,10 +59,10 @@ Bares::infixToPostfix( const string _exp )
 			 *	topSymbol recebe pela primeira vez o elemento do topo para poder
 			 * 	entrar no proximo while
 			 */
-			if ( !stackOfOperators.empty() )
+			if ( !StackOfOperators.empty() )
 			{
 				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
-				topSymbol = stackOfOperators.top();
+				topSymbol = StackOfOperators.top();
 			}
 
 			auto itrA = topSymbol.begin();
@@ -74,34 +74,34 @@ Bares::infixToPostfix( const string _exp )
 			 * 	Enquanto a pilha de operadores nao estiver vazia 
 			 *	e o simbolo do topo (topSymbol) ≥ symb faca... 
 			 */
-			while( !stackOfOperators.empty() && hasPriority( _topSymbol, _symbol ) )
+			while( !StackOfOperators.empty() && hasPriority( _topSymbol, _symbol ) )
 			{
 				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
-				topSymbol = stackOfOperators.top();
+				topSymbol = StackOfOperators.top();
 
 				/* Se o simbolo do topo da pilha nao for parentesis */
 				if ( topSymbol != "(" && topSymbol != ")" )
 				{
 					outputQueue.push( topSymbol );	/*!< Insere o simbolo do topo da pilha na fila de saida */
-					stackOfOperators.pop(); 		/*!< Remove o operador ja utilizado da pilha */
+					StackOfOperators.pop(); 		/*!< Remove o operador ja utilizado da pilha */
 				}
 				else /*!< Se for um parentesis, apenas o retira da pilha */
 				{
-					stackOfOperators.pop();
+					StackOfOperators.pop();
 				}	
 			}
 
 			/*! Empilhar symbol depois que retirar operadores de precedencia ≥ */
-			stackOfOperators.push( symbol );
+			StackOfOperators.push( symbol );
 		}
 	}
 
 	/*! Descarregar operadores remanescentes da pilha e manda-los para a fila de saida */
-	while ( !stackOfOperators.empty() )
+	while ( !StackOfOperators.empty() )
 	{
 		/*! Remover simbolo da pilha e enviar para fila de saida */
-		topSymbol = stackOfOperators.top();
-		stackOfOperators.pop();
+		topSymbol = StackOfOperators.top();
+		StackOfOperators.pop();
 
 		/*! Os simbolos parenteses nao entram para a fila de saida */
 		if ( topSymbol != "(" && topSymbol != ")" )
@@ -353,7 +353,7 @@ queue<string>
 Bares::stringToQueue( const string _exp )
 {
 	queue<string> expression;
-	//stack<string> expression;
+	//Stack<string> expression;
 	//vector<string> expression;
 
 	string strItr; /*! Usado apenas para fins de teste */
@@ -399,7 +399,7 @@ int
 Bares::calculatesExpression( queue<string> _fila ) 
 {
  	string symbol;	/*!< Receives one member of the expression for be checked. */
- 	stack<double> stk;	/*!< Auxiliary stack to calculate the expression */
+ 	Stack<double> stk;	/*!< Auxiliary Stack to calculate the expression */
 
  	/*! Operands. */
  	int firstOperand;
@@ -420,7 +420,7 @@ Bares::calculatesExpression( queue<string> _fila )
  		{
 			try
 			{
-				/* Adds the operand in the stack. */
+				/* Adds the operand in the Stack. */
 				stk.push( std::stod( symbol ) );
 
 			/* If occur an error. */
@@ -432,18 +432,18 @@ Bares::calculatesExpression( queue<string> _fila )
 			}
  		}
 
- 		/* If the stack size is greater than one, and symb is an operator. */
+ 		/* If the Stack size is greater than one, and symb is an operator. */
 		if ( stk.size() > 1 && isOperator( symbol ) ) 
 		{
- 			/* Receives the second operand of the top stack. */
+ 			/* Receives the second operand of the top Stack. */
  			secondOperand = stk.top();
 
- 			/* Removes the operand of the top stack. */
+ 			/* Removes the operand of the top Stack. */
  			stk.pop();
 
- 			/* Receives the first operand of the top stack */
+ 			/* Receives the first operand of the top Stack */
  			firstOperand = stk.top();
- 			/* Removes the operand of the top stack. */
+ 			/* Removes the operand of the top Stack. */
 	 		stk.pop();
 
 	 		char symb = symbol[0];
@@ -458,14 +458,14 @@ Bares::calculatesExpression( queue<string> _fila )
 			{
 				result = performOperation( symb, firstOperand, secondOperand );
 			}
-			stk.push( result );	/*!< Adds the result in the stack */
+			stk.push( result );	/*!< Adds the result in the Stack */
 		}
  	}
 
- 	/* Receives the result, top stack. */
+ 	/* Receives the result, top Stack. */
  	result = stk.top();
 
- 	/* Removes the result of the stack. */
+ 	/* Removes the result of the Stack. */
  	stk.pop();
  	
  	/* Return the result. */

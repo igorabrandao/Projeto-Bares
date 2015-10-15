@@ -79,25 +79,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>** Visão Geral** O projeto bares é um programa voltado a avaliação de expressões numéricas o projeto foi desenvilvido como parte da avaliação das disciplinas de estrura de dados I e Linguagem de programação I ambas ministradas pelo professor Selan Rodrigues dos Santos pela universidade federal do rio grande do norte (UFRN)</p>
+<h3>Membros da equipe</h3>
+<ul>
+<li>Igor A. Brandão</li>
+<li>Leandro Antonio F. Silva</li>
+</ul>
 <h3>Como compilar</h3>
 <ul>
 <li>Use o makefile digitando o comando **'make'** pelo terminal, após ter navegado para a pasta do projeto.</li>
 </ul>
 <h3>COMO EXECUTAR O PROGRAMA</h3>
-<p>Exitem duas formas de se rodar o programa a primeira é executando o programa sem parametros, então ele pedira ao usuário que digite sua propria expressão, a segunda forma é passando por parametro o arquivo de entrada exemplos:</p>
+<p>Exitem duas formas de se rodar o programa a primeira é executando o programa sem parametros, então ele pedira ao usuário que digite sua propria expressão, a segunda forma é passando por parametro o arquivo de entrada exemplos:<br/>
+</p>
 <ul>
-<li>./bin/bares</li>
+<li>./bin/bares<br/>
+</li>
 <li>./bin/bares input.dat</li>
 </ul>
-<h3>Membros da equipe</h3>
-<ul>
-<li>Igor A. Brandão</li>
-<li>Leandro Antonio F. Silva </li>
-</ul>
+<h3>LISTA DOS ERROS TRATADOS</h3>
+<p>Os erros tratados pelo programa são os seguintes:</p>
+<p>Erro 2 - Falta operando;<br/>
+Erro 3 - Operando inválido;<br/>
+Erro 4 - Operador inválido;<br/>
+Erro 6 - Fechamento de escopo inválido;<br/>
+Erro 7 - Escopo aberto;<br/>
+Erro 8 - Divisão por zero.</p>
+<h3>PROBLEMAS E LIMITAÇÕES</h3>
+<p>Tivemos dificuldades em adaptar as classes customizadas <a class="el" href="d4/dc1/classStack.html">Stack</a> e <a class="el" href="d7/d56/classQueue.html">Queue</a> para funcionar em harmonia com o projeto <a class="el" href="df/dd8/classBares.html">Bares</a> sem o problema de segmentation fault. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 08:03:12 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 15 2015 08:26:26 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
