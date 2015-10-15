@@ -47,7 +47,7 @@ Bares::infixToPostfix( const string _exp )
 			/* Enviar symbol direto para a fila de saida */
 			outputQueue.push( symbol );
 		}
-		else if( symbol == "(" ) /*!< Caso o symbol seja um abre parenteses */
+		else if ( symbol == "(" ) /*!< Caso o symbol seja um abre parenteses */
 		{
 			/*! Joga o symbol na pilha */
 			stackOfOperators.push( symbol );
@@ -59,7 +59,7 @@ Bares::infixToPostfix( const string _exp )
 			 *	topSymbol recebe pela primeira vez o elemento do topo para poder
 			 * 	entrar no proximo while
 			 */
-			if(!stackOfOperators.empty() )
+			if (!stackOfOperators.empty() )
 			{
 				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
 				topSymbol = stackOfOperators.top();
@@ -80,7 +80,7 @@ Bares::infixToPostfix( const string _exp )
 				topSymbol = stackOfOperators.top();
 
 				/* Se o simbolo do topo da pilha nao for parentesis */
-				if( topSymbol != "(" && topSymbol != ")" )
+				if ( topSymbol != "(" && topSymbol != ")" )
 				{
 					outputQueue.push( topSymbol );	/*!< Insere o simbolo do topo da pilha na fila de saida */
 					stackOfOperators.pop(); 		/*!< Remove o operador ja utilizado da pilha */
@@ -103,7 +103,7 @@ Bares::infixToPostfix( const string _exp )
 		topSymbol = stackOfOperators.top();
 		stackOfOperators.pop();
 		/*! Os simbolos parenteses nao entram para a fila de saida */
-		if( topSymbol != "(" && topSymbol != ")" )
+		if ( topSymbol != "(" && topSymbol != ")" )
 		{
 			outputQueue.push( topSymbol ); /*! Se nao for parentesis, vai para a fila de saida */
 		}
@@ -359,7 +359,7 @@ Bares::readExpressions( const string _filename )
 	ifstream file( "assets/data/" + _filename);
 
 	/*! if the input file does not open */
-	if( !file.is_open() )
+	if ( !file.is_open() )
 	{
 		/*! Show a error message */
 		cout << "Erro!!! [ " << _filename << " ], does not open " << endl;
@@ -398,38 +398,38 @@ Bares::stringToQueue( const string _exp )
 	string str;
 	string opr;
 
-	for(auto itr( _exp.begin() ); itr < _exp.end(); ++itr )
+	for ( auto itr( _exp.begin() ); itr < _exp.end(); ++itr )
 	{
 		strItr = *itr;
-		if( isOperand( *itr ) )
+		if ( isOperand( *itr ) )
 		{
 			/*! if not a blank space */
-			if(strItr != " ")
+			if (strItr != " ")
 				str = str + *itr;
 		}
 		else
 		{
 
-			if( str != "" )
+			if ( str != "" )
 				expression.push(str);
 			
 			opr = *itr;
-			if(opr != " ")
+			if (opr != " ")
 				expression.push(opr);
 			str = "";
 		}
 	}
-	if( str != "" )
+	if ( str != "" )
 	{	
-		if( str != " ")
+		if ( str != " ")
 		expression.push(str);
 	}
 	return expression;
 }
 
-/**
- * Calculates and evaluates the expression.
- */
+/********************************************//**
+* Calculates and evaluates the expression.
+***********************************************/
 int 
 Bares::calculatesExpression( queue<string> _fila ) 
 {
@@ -441,7 +441,7 @@ Bares::calculatesExpression( queue<string> _fila )
  	int secondOperand;
 
  	int result;	/*!< Store the result of the expression */
- 	
+
  	/*! If the queue is n't empty, calculate the expression */
  	while ( !_fila.empty() ) 
  	{
@@ -472,6 +472,7 @@ Bares::calculatesExpression( queue<string> _fila )
 		{
  			/* Receives the second operand of the top stack. */
  			secondOperand = stk.top();
+
  			/* Removes the operand of the top stack. */
  			stk.pop();
 
@@ -497,6 +498,9 @@ Bares::calculatesExpression( queue<string> _fila )
  	return result;
 }
 
+/********************************************//**
+* Print the queue.
+***********************************************/
 void
 Bares::printQueue( queue<string> _queue )
 {
@@ -511,7 +515,9 @@ Bares::printQueue( queue<string> _queue )
 	cout << "]" << endl;
 }
 
-
+/********************************************//**
+* Check if the expression has sintax error.
+***********************************************/
 bool
 Bares::hasSyntaxError( queue<string> _infixQueue )
 {
@@ -521,7 +527,7 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	// 1) testando caracteres invalidos 
 	while( !queueTemp1.empty() )
 	{
-		if( !isOperand( queueTemp1.front() ) && !isOperator( queueTemp1.front() ) )
+		if ( !isOperand( queueTemp1.front() ) && !isOperator( queueTemp1.front() ) )
 		{
 			cout << "Caractere " << queueTemp1.front() << " eh invalido" << endl;
 			return true;
@@ -529,15 +535,13 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 		queueTemp1.pop();
 	}
 
-	
 	string symbol;
 	symbol = _infixQueue.front();
 	
-	// Constante numerica invalida.
-
-	if( isOperator( symbol ) && symbol != "(" && symbol != "-" && symbol != "+" )
+	// Err 01: Constante numerica invalida.
+	if ( isOperator( symbol ) && symbol != "(" && symbol != "-" && symbol != "+" )
 	{
-		cout << "Expressão inválida [ Caractere inicial: "<< symbol<< ", invalido" << endl;
+		cout << "<<< Expressão inválida [ Caractere inicial: "<< symbol<< ", invalido >>>" << endl;
 		bResult = true;
 	}
 	return bResult;

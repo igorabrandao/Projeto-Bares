@@ -33,7 +33,7 @@
 // std::underflow_error thrown if needed.
 // std::overflow_error thrown if needed.
 
-/*! LifeScreen template class */
+/*! Stack template class */
 template <class T>
 class stack
 {

@@ -12,7 +12,8 @@
 	OBS.........: Part of the LP1/EDB Project.
 
 	LAST UPDATE.: October 6th, 2015.
-	LAST UPDATE.: October 6th, 2015.
+	LAST UPDATE.: October 8th, 2015.
+	LAST UPDATE.: October 10th, 2015.
 	</pre>
 */
 
@@ -32,19 +33,25 @@
 using namespace std;
 
 // ******************PUBLIC OPERATIONS*********************
-// string infix2Postfix( _exp )				--> Convert infix to postfix expressions
-// int hasPriority( _exp1, _exp2 )			--> Check wich operator has a higher precedence
-// int isRightAssociative( _operator )		--> Check whether an operator is right associative
-// int getOperatorPrecedence( _operator )	--> Get the operator precedence
-// bool isOperator( _char )					--> Check whether a character is operator symbol
-// bool isOperand( _char )					--> Check whether a character is alphanumeric chanaracter
+// string infix2Postfix( _exp )					--> Convert infix to postfix expressions
+// int hasPriority( _exp1, _exp2 )				--> Check wich operator has a higher precedence
+// int isRightAssociative( _operator )			--> Check whether an operator is right associative
+// int getOperatorPrecedence( _operator )		--> Get the operator precedence
+// bool isOperator( _char )						--> Check whether a character is operator symbol
+// bool isOperand( _char )						--> Check whether a character is alphanumeric chanaracter
 // int performOperation( _operator, _operand1, _operand2 )	--> Perform an operation 
-// int parsePostfix( _exp )					--> Parse the postfix expression and return the output
+// int parsePostfix( _exp )						--> Parse the postfix expression and return the output
+// void loadFile( _filename )					--> Load the file passing the filename as parameter
+// vector<string> readExpressions( _filename )	--> Read Expression from file
+// queue<string> stringToQueue( _exp )			--> Convert the expression to queue
+// int calculatesExpression( _fila )			--> Calculate the expression
+// void printQueue( _queue )					--> Print the queue
+// void hasSyntaxError( _infixQueue )			--> Check if the sintax has errors
 
 // ***********************ERRORS****************************
 // std::underflow_error thrown if needed.
 
-/*! LifeScreen template class */
+/*! Bares template class */
 class Bares
 {
 	/*!
@@ -69,6 +76,7 @@ class Bares
 
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
 		int parsePostfix( const string _exp );
+
 		void loadFile( const string _filename );
 		vector<string> readExpressions( const string _filename );
 		queue<string> stringToQueue( const string _exp );
