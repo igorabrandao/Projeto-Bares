@@ -34,12 +34,17 @@ int main(int argc, char const *argv[])
 		{
 			cout << myExpressions[i] << endl;
 		}
+		cout << "####Fim do arquivo de entrada" << endl;
 		#endif
 
 		for( size_t i(0); i < myExpressions.size(); ++i )
 		{
-			postfix = obj.infix2Postfix( myExpressions[ i ] );
-			cout << postfix << endl;
+			/*! Se não tiver erros de sintaxe */
+			if(!obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
+			{
+				int result = obj.calculatesExpression( obj.infixToPostfix( myExpressions[ i ] ) );
+				cout << ">>> Resultado: " << result << endl;
+			}
 		}
 
 	}
@@ -54,8 +59,12 @@ int main(int argc, char const *argv[])
 		/*! Read the input */
 		getline(cin, expression);
 
-		int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
-		cout << ">>> Resultado: " << result << endl;
+		/*! Se não tiver erros de sintaxe */
+		if(!obj.hasSyntaxError( obj.stringToQueue( expression ) ) )
+		{
+			int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
+			cout << ">>> Resultado: " << result << endl;
+		}
 	}
 	/*! Main return */
 	return 0;

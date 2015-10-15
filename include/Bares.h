@@ -57,7 +57,7 @@ class Bares
         ~Bares();  			/*!< Destructor */
 
 		/*! Basic members */
-		string infix2Postfix( const string _exp );
+		queue<string> infixToPostfix( const string _exp );
 		int hasPriority( const char _exp1, const char _exp2 );
 		int isRightAssociative( const char _operator );
 		int getOperatorPrecedence( const char _operator );
@@ -73,8 +73,9 @@ class Bares
 		vector<string> readExpressions( const string _filename );
 		queue<string> stringToQueue( const string _exp );
 		int calculatesExpression( queue<string> _fila );
-		queue<string> infixToPostfix( const string _exp );
 		void printQueue( queue<string> _queue );
+		bool hasSyntaxError( queue<string> _infixQueue );
+	
 	/*!
      * Private section
     */
@@ -82,7 +83,7 @@ class Bares
 
 		/*! Attributes */
 		string expression;	/*!< Expression to be evaluated */
-		char operators[8] = { '+', '-', '/', '*', '^', '%' };
+		char operators[8] = { '+', '-', '/', '*', '^', '%', '(', ')' };
 
 		/*! Disable copy constructor */
 		Bares( const Bares & ){ /* empty */ }
