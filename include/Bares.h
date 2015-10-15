@@ -64,6 +64,7 @@ class Bares
 
 		bool isOperator( const char _char );
 		bool isOperator( const string _str );
+		bool isInvalidOperator( const string _str );
 		bool isOperand( const char _char );
 		bool isOperand( const string _str );
 
@@ -84,7 +85,7 @@ class Bares
 		/*! Attributes */
 		string expression;	/*!< Expression to be evaluated */
 		char operators[8] = { '+', '-', '/', '*', '^', '%', '(', ')' };
-
+		char invalidOperators[2] = { '=', '.'};
 		/*! Disable copy constructor */
 		Bares( const Bares & ){ /* empty */ }
 };

@@ -217,6 +217,24 @@ Bares::isOperator( const string _str )
 }
 
 /********************************************//**
+* Check whether a character is operator symbol.
+***********************************************/
+bool
+Bares::isInvalidOperator( const string _str )
+{
+	auto itr = _str.begin();
+	char char_ = *itr;
+	/*! Check all possible operators */	
+	for ( unsigned int i = 0; i < sizeof(invalidOperators); ++i )
+	{
+		if ( char_ == invalidOperators[i] )
+			return true;
+	}
+
+	return false;
+}
+
+/********************************************//**
 * Check whether a character is alphanumeric 
 * chanaracter.
 ***********************************************/
@@ -516,7 +534,23 @@ bool
 Bares::hasSyntaxError( queue<string> _infixQueue )
 {
 	bool bResult;
-	queue<string> queueTemp1(_infixQueue);
+	queue<string> queueTemp1(_infixQueue); 	/*!< Auxiliar queue for the first test */
+	queue<string> queueTemp2(_infixQueue);	/*!< Auxiliar queue for the second test */
+	queue<string> queueTemp3(_infixQueue);	/*!< Auxiliar queue for the third test */
+	queue<string> queueTemp4(_infixQueue);	/*!< Auxiliar queue for the fourth test */
+	queue<string> queueTemp5(_infixQueue);	/*!< Auxiliar queue for the fifth test */
+	
+	
+	// tratando operadores invalidos
+	while( !queueTemp5.empty() )
+	{
+		if ( isInvalidOperator( queueTemp5.front() ) )
+		{
+			cout << ">>> Invalid Operator..." << endl;
+			return true;
+		}
+		queueTemp5.pop();
+	}
 
 	// 1) testando caracteres invalidos 
 	while( !queueTemp1.empty() )
@@ -529,7 +563,80 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 		queueTemp1.pop();
 	}
 
-	
+	// 2) testando se falta operando
+	int operandsInSeq 	= 0;
+	int operatorsInSeq = 0;
+	while ( !queueTemp2.empty() )
+	{
+		if ( isOperand(queueTemp2.front()) )
+		{	
+			operandsInSeq += 1;
+			if ( operatorsInSeq == 1)
+				operatorsInSeq--;
+		}
+		else if ( isOperator( queueTemp2.front() ) )
+		{
+			if ( queueTemp2.front() != "(" && queueTemp2.front() != ")")
+			{
+				operatorsInSeq += 1; 	/*!< Increase the num of operators in sequence */  
+				if ( operandsInSeq == 1)
+					operandsInSeq--;
+			}
+		}
+
+		/* Testa se existem dois operadores ou dois operandos em sequencia */
+		if ( operandsInSeq > 1 || operatorsInSeq > 1)
+		{
+			cout << ">>> Expressão invalida..." << endl;
+			return true;
+		}
+		queueTemp2.pop();
+	}
+	if( operatorsInSeq == 1)
+	{
+		cout << "Expressao invalida..." << endl;
+		return true;
+	}
+
+
+
+	// Tratando erro 6 escopo inválido...
+	int inParentesis = 0;
+	while( !queueTemp3.empty() )
+	{
+		if( queueTemp3.front() == "(" )
+			inParentesis++;
+		if( queueTemp3.front() == ")" && inParentesis == 1 )
+			inParentesis--;
+
+		/*! Se fechou um parentesis sem antes abri-lo dá erro*/
+		if(queueTemp3.front() == ")" && inParentesis == 0 )
+		{
+			cout << ">>> Fechamento de escopo invalido..." << endl;
+			return true;
+		}
+		queueTemp3.pop();
+	}
+
+	//====================[ Tratando erro 7 escopo aberto... ]========================================//
+	inParentesis = 0;
+	while( !queueTemp4.empty() )
+	{
+		if( queueTemp4.front() == "(" )
+			inParentesis++;
+		if( queueTemp4.front() == ")" && inParentesis == 1 )
+		{
+			inParentesis--; 
+		}
+		
+		queueTemp4.pop();
+	}
+	if (inParentesis != 0 )
+	{	
+		cout << ">>> Escopo acerto [ \'(\' without \')\' ] " << endl;
+		return true;
+	}
+	//*********************************************[ end ]*********************************************//
 	string symbol;
 	symbol = _infixQueue.front();
 	

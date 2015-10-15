@@ -37,10 +37,10 @@ int main(int argc, char const *argv[])
 		cout << "####Fim do arquivo de entrada" << endl;
 		#endif
 
-		for( size_t i(0); i < myExpressions.size(); ++i )
+		for ( size_t i(0); i < myExpressions.size(); ++i )
 		{
 			/*! Se não tiver erros de sintaxe */
-			if(!obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
+			if (!obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
 			{
 				int result = obj.calculatesExpression( obj.infixToPostfix( myExpressions[ i ] ) );
 				cout << ">>> Resultado: " << result << endl;
@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
 		getline(cin, expression);
 
 		/*! Se não tiver erros de sintaxe */
-		if(!obj.hasSyntaxError( obj.stringToQueue( expression ) ) )
+		if ( !obj.hasSyntaxError( obj.stringToQueue( expression ) ) )
 		{
 			int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
 			cout << ">>> Resultado: " << result << endl;
