@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define DEBUG
+//#define DEBUG
 
 int main(int argc, char const *argv[])
 {
@@ -39,6 +39,7 @@ int main(int argc, char const *argv[])
 
 		for ( size_t i(0); i < myExpressions.size(); ++i )
 		{
+			cout << ">>> Expressao: " << myExpressions[ i ] << endl;
 			/*! Se não tiver erros de sintaxe */
 			if (!obj.hasSyntaxError( obj.stringToQueue( myExpressions[ i ] ) ) )
 			{

@@ -501,8 +501,16 @@ Bares::calculatesExpression( queue<string> _fila )
 
 	 		char symb = symbol[0];
 			/* Receives the result of the operation. */
-			result = performOperation( symb, firstOperand, secondOperand );
-
+			if( secondOperand == 0 && symb == '/' )
+			{	
+				cout << ">>>Divisao por zero..." << endl;
+				result = 0;
+				return result; 
+			}
+			else
+			{
+				result = performOperation( symb, firstOperand, secondOperand );
+			}
 			stk.push( result );	/*!< Adds the result in the stack */
 		}
  	}
@@ -539,7 +547,7 @@ Bares::printQueue( queue<string> _queue )
 bool
 Bares::hasSyntaxError( queue<string> _infixQueue )
 {
-	bool bResult;
+	bool bResult = false;
 	queue<string> queueTemp1(_infixQueue); 	/*!< Auxiliar queue for the first test */
 	queue<string> queueTemp2(_infixQueue);	/*!< Auxiliar queue for the second test */
 	queue<string> queueTemp3(_infixQueue);	/*!< Auxiliar queue for the third test */
@@ -604,23 +612,23 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 		return true;
 	}
 
-
-
 	// Tratando erro 6 escopo inválido...
 	int inParentesis = 0;
 	while( !queueTemp3.empty() )
 	{
 		if( queueTemp3.front() == "(" )
 			inParentesis++;
-		if( queueTemp3.front() == ")" && inParentesis == 1 )
-			inParentesis--;
-
+		
 		/*! Se fechou um parentesis sem antes abri-lo dá erro*/
 		if(queueTemp3.front() == ")" && inParentesis == 0 )
 		{
 			cout << ">>> Fechamento de escopo invalido..." << endl;
 			return true;
 		}
+
+		if( queueTemp3.front() == ")" && inParentesis == 1 )
+			inParentesis--;
+		
 		queueTemp3.pop();
 	}
 
@@ -639,7 +647,7 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	}
 	if (inParentesis != 0 )
 	{	
-		cout << ">>> Escopo acerto [ \'(\' without \')\' ] " << endl;
+		cout << ">>> Escopo aberto [ \'(\' without \')\' ] " << endl;
 		return true;
 	}
 	//*********************************************[ end ]*********************************************//
