@@ -32,3 +32,6 @@ exe:
 
 val:
 	valgrind $(APP)
+
+queue:
+	g++ -Wall -g src/drive_queue.cpp -I include -o bin/queue
