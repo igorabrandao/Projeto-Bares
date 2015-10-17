@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*! \brief queue.inl.
-=======
 /*! \brief Queue.inl.
->>>>>>> a2f079e86465232e02d2da16c1d3adf87842d831
  *
  *  Implements the functions from Queue class.
 */
@@ -132,7 +128,7 @@ Queue<T>::back()
 template <typename T>
 bool
 Queue<T>::empty()
-
+{
 	/*! Check if the queue is empty */
 	return (iSz == 0);
 }

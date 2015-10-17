@@ -22,7 +22,7 @@
 
 #include <iostream>
 #include <string>
-#include <stack>
+//#include <stack>
 #include <vector>
 #include <fstream> /*!< ifstream */
 #include <queue>
@@ -31,7 +31,7 @@
 
 /*! Custom classes */
 #include "Stack.h"
-#include "Queue.h"
+//#include "Queue.h"
 
 using namespace std;
 
