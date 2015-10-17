@@ -27,7 +27,7 @@
 // bool isEmpty( )    	--> Return true if empty; else false
 // bool isFull( )    	--> Return true if full; else false
 // void makeEmpty( )  	--> Remove all items
-// void print( )  		--> Print the stack elements
+// void print( )  		--> Print the Stack elements
 
 // ***********************ERRORS****************************
 // std::underflow_error thrown if needed.
@@ -35,7 +35,7 @@
 
 /*! Stack template class */
 template <class T>
-class stack
+class Stack
 {
 	/*!
      * Public section
@@ -43,9 +43,9 @@ class stack
 	public:
 
 		/*! Functions */
-        stack();   			/*!< Constructor */
-        stack( int sz_ );   /*!< Constructor overload */
-        ~stack();  			/*!< Destructor */
+        Stack();   			/*!< Constructor */
+        Stack( int sz_ );   /*!< Constructor overload */
+        ~Stack();  			/*!< Destructor */
 
 		/*! Basic members */
 		void push( const T & _x );
@@ -56,6 +56,7 @@ class stack
 		bool isFull( ) { return (iTop + 1 == iSz); }
 		void makeEmpty( );
 		void print( );
+		bool size( ) { return (iSz); }
 
 	/*!
      * Private section
@@ -64,11 +65,11 @@ class stack
 
 		/*! Attributes */
 		int iSz;	/*!< Stack size */
-		int iTop;	/*!< The top of stack */
-		T* items;	/*!< A pointer to stack items */
+		int iTop;	/*!< The top of Stack */
+		T* items;	/*!< A pointer to Stack items */
 
 		/*! Disable copy constructor */
-		stack( const stack & ){ /* empty */ }
+		Stack( const Stack & ){ /* empty */ }
 };
 
 #include "Stack.inl"

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['top',['top',['../d1/dc2/classstack.html#adcf8291b3f53bc5dc5c683d94fb77fd7',1,'stack']]]
+  ['queue',['Queue',['../d7/d56/classQueue.html#af73bb29c868f7b37f369c668f114bd9f',1,'Queue']]]
 ];

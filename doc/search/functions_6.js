@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['parsepostfix',['parsePostfix',['../df/dd8/classBares.html#aa165cf737c813df7bb978413dfc3160a',1,'Bares']]],
-  ['performoperation',['performOperation',['../df/dd8/classBares.html#aa720ee53db94a41263efdfd2fdcacbc7',1,'Bares']]],
-  ['pop',['pop',['../d1/dc2/classstack.html#a1b51b98576a6e2866fbdbbb71a95613d',1,'stack']]],
-  ['print',['print',['../d1/dc2/classstack.html#a4d734798dee21dadce72e38f7f5254b3',1,'stack']]],
-  ['printqueue',['printQueue',['../df/dd8/classBares.html#a14e52eb479c1e8d3536c7e153c23101d',1,'Bares']]],
-  ['push',['push',['../d1/dc2/classstack.html#aec411ce2aab9edbaf1ba28a2ee76f33f',1,'stack']]]
+  ['infixtopostfix',['infixToPostfix',['../df/dd8/classBares.html#abae15af329e7c60dc9c400dfe5860c68',1,'Bares']]],
+  ['isinvalidoperator',['isInvalidOperator',['../df/dd8/classBares.html#a0f2eb81e9858d213fff833dd2fd5febb',1,'Bares']]],
+  ['isoperand',['isOperand',['../df/dd8/classBares.html#abf71968d40bec53d490a7f6b8f513667',1,'Bares::isOperand(const char _char)'],['../df/dd8/classBares.html#a232ba7cb284a0c7c003e5d499f6a4198',1,'Bares::isOperand(const string _str)']]],
+  ['isoperator',['isOperator',['../df/dd8/classBares.html#af551dca89fc6bda666da4daea4ca94e5',1,'Bares::isOperator(const char _char)'],['../df/dd8/classBares.html#a8a4418affe2186c85618916f2679fd33',1,'Bares::isOperator(const string _str)']]],
+  ['isrightassociative',['isRightAssociative',['../df/dd8/classBares.html#ab77d39a52f106a37768c7d3652bc91a6',1,'Bares']]]
 ];

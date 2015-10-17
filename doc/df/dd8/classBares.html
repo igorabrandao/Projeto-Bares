@@ -110,17 +110,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af551dca89fc6bda666da4daea4ca94e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a4418affe2186c85618916f2679fd33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#a8a4418affe2186c85618916f2679fd33">isOperator</a> (const string _str)</td></tr>
 <tr class="separator:a8a4418affe2186c85618916f2679fd33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2eb81e9858d213fff833dd2fd5febb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#a0f2eb81e9858d213fff833dd2fd5febb">isInvalidOperator</a> (const string _str)</td></tr>
+<tr class="separator:a0f2eb81e9858d213fff833dd2fd5febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf71968d40bec53d490a7f6b8f513667"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#abf71968d40bec53d490a7f6b8f513667">isOperand</a> (const char _char)</td></tr>
 <tr class="separator:abf71968d40bec53d490a7f6b8f513667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a232ba7cb284a0c7c003e5d499f6a4198"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#a232ba7cb284a0c7c003e5d499f6a4198">isOperand</a> (const string _str)</td></tr>
 <tr class="separator:a232ba7cb284a0c7c003e5d499f6a4198"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa720ee53db94a41263efdfd2fdcacbc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#aa720ee53db94a41263efdfd2fdcacbc7">performOperation</a> (const char _operator, const int _operand1, const int _operand2)</td></tr>
 <tr class="separator:aa720ee53db94a41263efdfd2fdcacbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa165cf737c813df7bb978413dfc3160a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#aa165cf737c813df7bb978413dfc3160a">parsePostfix</a> (const string _exp)</td></tr>
-<tr class="separator:aa165cf737c813df7bb978413dfc3160a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2585cc830f907ac2ae81bcdc0ae2b3b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2585cc830f907ac2ae81bcdc0ae2b3b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const string _filename)</td></tr>
-<tr class="separator:a2585cc830f907ac2ae81bcdc0ae2b3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9f0d39d8d9deb9c6be98da6867e7436"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#ad9f0d39d8d9deb9c6be98da6867e7436">readExpressions</a> (const string _filename)</td></tr>
 <tr class="memdesc:ad9f0d39d8d9deb9c6be98da6867e7436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the expressions of an input file.  <a href="#ad9f0d39d8d9deb9c6be98da6867e7436">More...</a><br/></td></tr>
 <tr class="separator:ad9f0d39d8d9deb9c6be98da6867e7436"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,6 +130,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 <tr class="separator:a14e52eb479c1e8d3536c7e153c23101d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add9f283fb57d004221d2531f363fdfe9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#add9f283fb57d004221d2531f363fdfe9">hasSyntaxError</a> (queue&lt; string &gt; _infixQueue)</td></tr>
 <tr class="separator:add9f283fb57d004221d2531f363fdfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a1262bb0d1912263f4d5fd0149b858"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/classBares.html#a54a1262bb0d1912263f4d5fd0149b858">trim</a> (const string &amp;_str)</td></tr>
+<tr class="separator:a54a1262bb0d1912263f4d5fd0149b858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../df/dd8/classBares.html">Bares</a> template class </p>
@@ -190,14 +189,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 </div><div class="memdoc">
 <p>Calculates and evaluates the expression. </p>
 <p>&lt; Receives one member of the expression for be checked.</p>
-<p>&lt; Auxiliary stack to calculate the expression</p>
+<p>&lt; Auxiliary <a class="el" href="../../d4/dc1/classStack.html">Stack</a> to calculate the expression</p>
 <p>Operands.</p>
 <p>&lt; Store the result of the expression</p>
-<p>If the queue is n't empty, calculate the expression</p>
+<p>If the queue isn't empty, calculate the expression</p>
 <p>&lt; Receives the first member of the queue</p>
 <p>Since symb is the first element, we remove it from the queue.</p>
 <p>If the member is operand.</p>
-<p>&lt; Adds the result in the stack </p>
+<p>&lt; Adds the result in the <a class="el" href="../../d4/dc1/classStack.html">Stack</a> </p>
 
 </div>
 </div>
@@ -263,6 +262,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
       </table>
 </div><div class="memdoc">
 <p>Check if the expression has sintax error. </p>
+<p>Auxiliary variables</p>
+<p>&lt; Auxiliary queues to test erros</p>
+<p>ERROR 01: Invalid numeric constant</p>
+<p>Check the interval</p>
+<p>ERROR 02: Missing operand</p>
+<p>&lt; Increase the num of operators in sequence</p>
+<p>ERROR 03: Invalid operand</p>
+<p>ERROR 04: Invalid operator</p>
+<p>ERROR 06: Invalid escope closer</p>
+<p>Se fechou um parentesis sem antes abri-lo dá erro</p>
+<p>ERROR 07: Open escope</p>
 
 </div>
 </div>
@@ -282,11 +292,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 <p>Basic members</p>
 <p>Convert infix to postfix exp_s. </p>
 <p>&lt; The current symbol to be classified</p>
-<p>&lt; O simbolo do top da pila de operadores</p>
+<p>&lt; Top symbom from top queue</p>
 <p>&lt; The queue with the input expression</p>
-<p>&lt; Lista de saida com o formato posfixo</p>
-<p>&lt; Stack of operators</p>
-<p>Enquanto não chegar ao fim da fila de entrada faca</p>
+<p>&lt; Output list with postfix format</p>
+<p>&lt; <a class="el" href="../../d4/dc1/classStack.html">Stack</a> of operators</p>
+<p>Run until the queue end</p>
 <p>Remover o simbolo da lista de entrada e armazenar em symbol</p>
 <p>Se symbol for operando... entao</p>
 <p>&lt; Caso o symbol seja um abre parenteses</p>
@@ -305,6 +315,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 <p>Se nao for parentesis, vai para a fila de saida</p>
 <p>Print the output queue</p>
 <p>Returns the queue in a posfix format </p>
+
+</div>
+</div>
+<a class="anchor" id="a0f2eb81e9858d213fff833dd2fd5febb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bares::isInvalidOperator </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check whether a character is operator symbol. </p>
+<p>Check all possible operators </p>
 
 </div>
 </div>
@@ -396,32 +424,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
       </table>
 </div><div class="memdoc">
 <p>Check whether an operator is right associative. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa165cf737c813df7bb978413dfc3160a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bares::parsePostfix </td>
-          <td>(</td>
-          <td class="paramtype">const string&#160;</td>
-          <td class="paramname"><em>exp_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Check whether a character is alphanumeric chanaracter. </p>
-<p>Scanning each character from left. If character is a delimitter, move on.</p>
-<p>If character is operator, pop two elements from stack, perform operation and push the result back.</p>
-<p>Pop two operands</p>
-<p>Perform operation</p>
-<p>Push back result of operation on stack.</p>
-<p>Extract the numeric operand from the string Keep incrementing i as long as you are getting a numeric digit.</p>
-<p>For a number with more than one digits, as we are scanning from left to right. Everytime , we get a digit towards right, we can multiply current total in operand by 10 and add the new digit.</p>
-<p>Finally, you will come out of while loop with i set to a non-numeric character or end of string decrement i because it will be incremented in increment section of loop once again. We do not want to skip the non-numeric character by incrementing i twice.</p>
-<p>If expression is in correct format, Stack will finally have one element. This will be the output </p>
 
 </div>
 </div>
@@ -543,6 +545,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 
 </div>
 </div>
+<a class="anchor" id="a54a1262bb0d1912263f4d5fd0149b858"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Bares::trim </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>str_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the expression has sintax error. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../d2/dd9/Bares_8h_source.html">Bares.h</a></li>
 <li>src/Bares.cpp</li>
@@ -550,7 +569,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFile</b> (const s
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 14 2015 22:06:45 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 15 2015 08:26:26 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

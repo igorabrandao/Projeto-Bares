@@ -48,7 +48,7 @@ struct Node
 
 /*! Queue template class */
 template <class T>
-class queue
+class Queue
 {
 	/*!
      * Private section
@@ -58,7 +58,7 @@ class queue
     	/*! Attributes */
         Node<T> * head;		/*!< Pointer to head element */
         Node<T> * tail;		/*!< Pointer to tail element */
-        int iSz;			/*!< queue size */
+        int iSz;			/*!< Queue size */
 
     /*!
      * Public section
@@ -66,8 +66,8 @@ class queue
     public:
 
         /*! Functions */
-        queue();   			/*!< Constructor */
-        ~queue();  			/*!< Destructor */
+        Queue();   			/*!< Constructor */
+        ~Queue();  			/*!< Destructor */
 
     	/*! Basic members */
         void push( const T & _x );
@@ -79,7 +79,6 @@ class queue
         bool empty();
 		void makeEmpty();
 		void print();
-        int size();
 };
 
 #include "Queue.inl"

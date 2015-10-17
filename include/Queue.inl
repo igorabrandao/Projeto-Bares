@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! \brief queue.inl.
+=======
+/*! \brief Queue.inl.
+>>>>>>> a2f079e86465232e02d2da16c1d3adf87842d831
  *
  *  Implements the functions from Queue class.
 */
@@ -8,7 +12,7 @@
 * constructor
 ***********************************************/
 template <typename T>
-queue<T>::queue()
+Queue<T>::Queue()
 {
 	/*! Initialize the pointers */
     head = NULL;
@@ -20,17 +24,22 @@ queue<T>::queue()
 * destructor
 ***********************************************/
 template <typename T>
-queue<T>::~queue()
+Queue<T>::~Queue()
 {
-	/*! Empty */
+	/*! If it is already empty don't do anything. */
+    if ( empty() )
+        return;
+
+    /*! Clear de queue */
+    makeEmpty();
 }
 
 /********************************************//**
-* Inserts a new element at the back of the queue.
+* Inserts a new element at the back of the Queue.
 ***********************************************/
 template <typename T>
 void
-queue<T>::push( const T & x_  )
+Queue<T>::push( const T & x_  )
 {
 	/*! Check if the queue is empty */
 	if ( head == NULL )
@@ -55,14 +64,14 @@ queue<T>::push( const T & x_  )
 ***********************************************/
 template <typename T>
 void
-queue<T>::pop()
+Queue<T>::pop()
 {
 	/*! Check if the queue is empty */
 	if ( head == NULL )
 	{
 		/*! Error message */
-		throw std::underflow_error("<< queue is Empty! >>");
-		//exit(1);
+		throw std::underflow_error("<< Queue is Empty! >>");
+		exit(1);
 	}
 
 	/*! Remove the element */
@@ -79,14 +88,14 @@ queue<T>::pop()
 ***********************************************/
 template <typename T>
 const T &
-queue<T>::front()
+Queue<T>::front()
 {
 	/*! Check if the queue's head is empty */
 	if ( head == NULL )
 	{
 		/*! Error message */
 		throw std::underflow_error("<< Head is Empty! >>");
-		//exit(1);
+		exit(1);
 	}
 
 	/*! Return the head item */
@@ -98,14 +107,14 @@ queue<T>::front()
 ***********************************************/
 template <typename T>
 const T &
-queue<T>::back()
+Queue<T>::back()
 {
 	/*! Check if the queue's tail is empty */
 	if ( tail == NULL )
 	{
 		/*! Error message */
 		throw std::underflow_error("<< Tail is Empty! >>");
-		//exit(1);
+		exit(1);
 	}
 
 	/*! Return the tail item */
@@ -113,13 +122,17 @@ queue<T>::back()
 }
 
 /********************************************//**
+<<<<<<< HEAD
 * Check if the queue is empty.
+=======
+* Check if the Queue is empty.
+>>>>>>> a2f079e86465232e02d2da16c1d3adf87842d831
 * Returns true to empty or false if not.
 ***********************************************/
 template <typename T>
 bool
-queue<T>::empty()
-{
+Queue<T>::empty()
+
 	/*! Check if the queue is empty */
 	return (iSz == 0);
 }
@@ -129,7 +142,25 @@ queue<T>::empty()
 ***********************************************/
 template <typename T>
 void
-queue<T>::print()
+Queue<T>::makeEmpty()
+{
+	Node<T> *tmp;
+
+    /*! Delete all elements until its empty */
+    while ( !empty() )
+    {
+        tmp = head;
+        head = head->next;
+        delete tmp;
+    }
+}
+
+/********************************************//**
+* Print the queue
+***********************************************/
+template <typename T>
+void
+Queue<T>::print()
 {
 	std::cout << "<< [ ";
 

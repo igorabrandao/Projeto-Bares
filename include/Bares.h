@@ -22,15 +22,16 @@
 
 #include <iostream>
 #include <string>
-//#include "Stack.h"
-//#include <stack>
-#include "Stack.h"
+#include <stack>
 #include <vector>
-#include <fstream> // ifstream
+#include <fstream> /*!< ifstream */
 #include <queue>
-//#include "Queue.h"
 #include <stdexcept>
 #include <cmath>
+
+/*! Custom classes */
+#include "Stack.h"
+#include "Queue.h"
 
 using namespace std;
 
@@ -42,13 +43,12 @@ using namespace std;
 // bool isOperator( _char )						--> Check whether a character is operator symbol
 // bool isOperand( _char )						--> Check whether a character is alphanumeric chanaracter
 // int performOperation( _operator, _operand1, _operand2 )	--> Perform an operation 
-// int parsePostfix( _exp )						--> Parse the postfix expression and return the output
-// void loadFile( _filename )					--> Load the file passing the filename as parameter
 // vector<string> readExpressions( _filename )	--> Read Expression from file
 // queue<string> stringToQueue( _exp )			--> Convert the expression to queue
 // int calculatesExpression( _fila )			--> Calculate the expression
 // void printQueue( _queue )					--> Print the queue
 // void hasSyntaxError( _infixQueue )			--> Check if the sintax has errors
+// string trim( _str )							--> Remove white spaces from expression
 
 // ***********************ERRORS****************************
 // std::underflow_error thrown if needed.
@@ -78,12 +78,14 @@ class Bares
 		bool isOperand( const string _str );
 
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
-		void loadFile( const string _filename );
+
 		vector<string> readExpressions( const string _filename );
 		queue<string> stringToQueue( const string _exp );
 		int calculatesExpression( queue<string> _fila );
 		void printQueue( queue<string> _queue );
 		bool hasSyntaxError( queue<string> _infixQueue );
+
+		string trim( const string & _str );
 	
 	/*!
      * Private section
@@ -94,6 +96,7 @@ class Bares
 		string expression;	/*!< Expression to be evaluated */
 		char operators[8] = { '+', '-', '/', '*', '^', '%', '(', ')' };
 		char invalidOperators[2] = { '=', '.'};
+
 		/*! Disable copy constructor */
 		Bares( const Bares & ){ /* empty */ }
 };
