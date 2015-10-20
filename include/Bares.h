@@ -22,16 +22,14 @@
 
 #include <iostream>
 #include <string>
-//#include <stack>
 #include <vector>
 #include <fstream> /*!< ifstream */
-#include <queue>
 #include <stdexcept>
 #include <cmath>
 
 /*! Custom classes */
 #include "Stack.h"
-//#include "Queue.h"
+#include "Queue.h"
 
 using namespace std;
 
@@ -44,9 +42,9 @@ using namespace std;
 // bool isOperand( _char )						--> Check whether a character is alphanumeric chanaracter
 // int performOperation( _operator, _operand1, _operand2 )	--> Perform an operation 
 // vector<string> readExpressions( _filename )	--> Read Expression from file
-// queue<string> stringToQueue( _exp )			--> Convert the expression to queue
+// Queue<string> stringToQueue( _exp )			--> Convert the expression to Queue
 // int calculatesExpression( _fila )			--> Calculate the expression
-// void printQueue( _queue )					--> Print the queue
+// void printQueue( _Queue )					--> Print the Queue
 // void hasSyntaxError( _infixQueue )			--> Check if the sintax has errors
 // string trim( _str )							--> Remove white spaces from expression
 
@@ -66,7 +64,7 @@ class Bares
         ~Bares();  			/*!< Destructor */
 
 		/*! Basic members */
-		queue<string> infixToPostfix( const string _exp );
+		Queue<string> infixToPostfix( const string _exp );
 		int hasPriority( const char _exp1, const char _exp2 );
 		int isRightAssociative( const char _operator );
 		int getOperatorPrecedence( const char _operator );
@@ -80,10 +78,10 @@ class Bares
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
 
 		vector<string> readExpressions( const string _filename );
-		queue<string> stringToQueue( const string _exp );
-		int calculatesExpression( queue<string> _fila );
-		void printQueue( queue<string> _queue );
-		bool hasSyntaxError( queue<string> _infixQueue );
+		Queue<string> stringToQueue( const string _exp );
+		int calculatesExpression( Queue<string> _fila );
+		void printQueue( Queue<string> _Queue );
+		bool hasSyntaxError( Queue<string> _infixQueue );
 
 		string trim( const string & _str );
 	

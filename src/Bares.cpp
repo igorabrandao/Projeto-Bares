@@ -23,18 +23,18 @@ Bares::~Bares()
 /********************************************//**
 * Convert infix to postfix exp_s.
 ***********************************************/
-queue<string>
+Queue<string>
 Bares::infixToPostfix( const string _exp )
 {
 	string symbol;					/*!< The current symbol to be classified */
-	string topSymbol;				/*!< Top symbom from top queue */
-	queue<string> _inputQueue;		/*!< The queue with the input expression */
-	queue<string> outputQueue; 		/*!< Output list with postfix format */
+	string topSymbol;				/*!< Top symbom from top Queue */
+	Queue<string> _inputQueue;		/*!< The Queue with the input expression */
+	Queue<string> outputQueue; 		/*!< Output list with postfix format */
 	Stack<string> StackOfOperators;	/*!< Stack of operators */
 
 	_inputQueue = stringToQueue( _exp );
 
-	/*! Run until the queue end */
+	/*! Run until the Queue end */
 	while ( !_inputQueue.empty() )
 	{
 		/** Remover o simbolo da lista de entrada e armazenar em symbol */
@@ -110,10 +110,10 @@ Bares::infixToPostfix( const string _exp )
 		}
 	}
 
-	/*! Print the output queue */
+	/*! Print the output Queue */
 	printQueue(outputQueue);
 
-	/*! Returns the queue in a posfix format */
+	/*! Returns the Queue in a posfix format */
 	return outputQueue;
 }
 
@@ -349,10 +349,10 @@ Bares::readExpressions( const string _filename )
 * @param _exp one infix expression 		
 * @returns an array where each position is an operator or an operand. 		
 *********************************************************************/
-queue<string>
+Queue<string>
 Bares::stringToQueue( const string _exp )
 {
-	queue<string> expression;
+	Queue<string> expression;
 	//Stack<string> expression;
 	//vector<string> expression;
 
@@ -396,7 +396,7 @@ Bares::stringToQueue( const string _exp )
 * Calculates and evaluates the expression.
 ***********************************************/
 int 
-Bares::calculatesExpression( queue<string> _fila ) 
+Bares::calculatesExpression( Queue<string> _fila ) 
 {
  	string symbol;	/*!< Receives one member of the expression for be checked. */
  	Stack<double> stk;	/*!< Auxiliary Stack to calculate the expression */
@@ -407,12 +407,12 @@ Bares::calculatesExpression( queue<string> _fila )
 
  	int result;	/*!< Store the result of the expression */
 
- 	/*! If the queue isn't empty, calculate the expression */
+ 	/*! If the Queue isn't empty, calculate the expression */
  	while ( !_fila.empty() ) 
  	{
- 		symbol = _fila.front(); 	/*!< Receives the first member of the queue */
+ 		symbol = _fila.front(); 	/*!< Receives the first member of the Queue */
 
- 		/*! Since symb is the first element, we remove it from the queue. */
+ 		/*! Since symb is the first element, we remove it from the Queue. */
  		_fila.pop();
 
  		/*! If the member is operand. */
@@ -473,18 +473,18 @@ Bares::calculatesExpression( queue<string> _fila )
 }
 
 /********************************************//**
-* Print the queue.
+* Print the Queue.
 ***********************************************/
 void
-Bares::printQueue( queue<string> _queue )
+Bares::printQueue( Queue<string> _Queue )
 {
 	string str;
 	cout << "[ ";
-	while( !_queue.empty() )
+	while( !_Queue.empty() )
 	{
-		str = _queue.front();
+		str = _Queue.front();
 		cout << str << " ";
-		_queue.pop();
+		_Queue.pop();
 	}
 	cout << "]" << endl;
 }
@@ -493,34 +493,34 @@ Bares::printQueue( queue<string> _queue )
 * Check if the expression has sintax error.
 ***********************************************/
 bool
-Bares::hasSyntaxError( queue<string> _infixQueue )
+Bares::hasSyntaxError( Queue<string> _infixQueue )
 {
 	/*! Auxiliary variables */
 	bool bResult = false;
 
-	/*!< Auxiliary queues to test erros */
-	queue<string> queueTest1(_infixQueue);
-	queue<string> queueTest2(_infixQueue);
-	queue<string> queueTest3(_infixQueue);
-	queue<string> queueTest4(_infixQueue);
-	queue<string> queueTest5(_infixQueue);
-	queue<string> queueTest6(_infixQueue);
-	queue<string> queueTest7(_infixQueue);
-	queue<string> queueTest8(_infixQueue);
+	/*!< Auxiliary Queues to test erros */
+	Queue<string> QueueTest1(_infixQueue);
+	Queue<string> QueueTest2(_infixQueue);
+	Queue<string> QueueTest3(_infixQueue);
+	Queue<string> QueueTest4(_infixQueue);
+	Queue<string> QueueTest5(_infixQueue);
+	Queue<string> QueueTest6(_infixQueue);
+	Queue<string> QueueTest7(_infixQueue);
+	Queue<string> QueueTest8(_infixQueue);
 
 	/********************************************//**
 	* ERROR 01: Invalid numeric constant
 	***********************************************/
-	/*while ( !queueTest1.empty() )
+	/*while ( !QueueTest1.empty() )
 	{*/
 		/*! Check the interval */
-		/*if ( !(queueTest1.front() > (-32767) && queueTest1.front() < 32767) )
+		/*if ( !(QueueTest1.front() > (-32767) && QueueTest1.front() < 32767) )
 		{
 			cout << ">>> Invalid Operator..." << endl;
 			return true;
 		}
 
-		queueTest1.pop();
+		QueueTest1.pop();
 	}*/
 
 	/********************************************//**
@@ -529,17 +529,17 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	int operandsInSeq 	= 0;
 	int operatorsInSeq = 0;
 
-	while ( !queueTest2.empty() )
+	while ( !QueueTest2.empty() )
 	{
-		if ( isOperand(queueTest2.front()) )
+		if ( isOperand(QueueTest2.front()) )
 		{	
 			operandsInSeq += 1;
 			if ( operatorsInSeq == 1 )
 				operatorsInSeq--;
 		}
-		else if ( isOperator( queueTest2.front() ) )
+		else if ( isOperator( QueueTest2.front() ) )
 		{
-			if ( queueTest2.front() != "(" && queueTest2.front() != ")")
+			if ( QueueTest2.front() != "(" && QueueTest2.front() != ")")
 			{
 				operatorsInSeq += 1; 	/*!< Increase the num of operators in sequence */  
 				if ( operandsInSeq == 1 )
@@ -553,7 +553,7 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 			cout << ">>> Missing operand..." << endl;
 			return true;
 		}
-		queueTest2.pop();
+		QueueTest2.pop();
 	}
 	if ( operatorsInSeq == 1 )
 	{
@@ -564,29 +564,29 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	/********************************************//**
 	* ERROR 03: Invalid operand
 	***********************************************/
-	while ( !queueTest3.empty() )
+	while ( !QueueTest3.empty() )
 	{
-		if ( !isOperand( queueTest3.front() ) && !isOperator( queueTest3.front() ) )
+		if ( !isOperand( QueueTest3.front() ) && !isOperator( QueueTest3.front() ) )
 		{
-			cout << ">>> Operand " << queueTest3.front() << " is invalid..." << endl;
+			cout << ">>> Operand " << QueueTest3.front() << " is invalid..." << endl;
 			return true;
 		}
 
-		queueTest3.pop();
+		QueueTest3.pop();
 	}
 
 	/********************************************//**
 	* ERROR 04: Invalid operator
 	***********************************************/
 	// Handle invalid operands
-	while ( !queueTest4.empty() )
+	while ( !QueueTest4.empty() )
 	{
-		if ( isInvalidOperator( queueTest4.front() ) )
+		if ( isInvalidOperator( QueueTest4.front() ) )
 		{
 			cout << ">>> Invalid Operator..." << endl;
 			return true;
 		}
-		queueTest4.pop();
+		QueueTest4.pop();
 	}
 
 	/********************************************//**
@@ -594,22 +594,22 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	***********************************************/
 	int inParentesis = 0;
 
-	while ( !queueTest6.empty() )
+	while ( !QueueTest6.empty() )
 	{
-		if( queueTest6.front() == "(" )
+		if( QueueTest6.front() == "(" )
 			inParentesis++;
 		
 		/*! Se fechou um parentesis sem antes abri-lo dá erro*/
-		if ( queueTest6.front() == ")" && inParentesis == 0 )
+		if ( QueueTest6.front() == ")" && inParentesis == 0 )
 		{
 			cout << ">>> Invalid escope closer..." << endl;
 			return true;
 		}
 
-		if ( queueTest6.front() == ")" && inParentesis == 1 )
+		if ( QueueTest6.front() == ")" && inParentesis == 1 )
 			inParentesis--;
 
-		queueTest6.pop();
+		QueueTest6.pop();
 	}
 
 	/********************************************//**
@@ -617,16 +617,16 @@ Bares::hasSyntaxError( queue<string> _infixQueue )
 	***********************************************/
 	inParentesis = 0;
 
-	while ( !queueTest4.empty() )
+	while ( !QueueTest4.empty() )
 	{
-		if ( queueTest4.front() == "(" )
+		if ( QueueTest4.front() == "(" )
 			inParentesis++;
-		if ( queueTest4.front() == ")" && inParentesis == 1 )
+		if ( QueueTest4.front() == ")" && inParentesis == 1 )
 		{
 			inParentesis--; 
 		}
 
-		queueTest4.pop();
+		QueueTest4.pop();
 	}
 
 	if (inParentesis != 0 )
