@@ -1,3 +1,4 @@
+/*! \file */ 
 /*! \brief Class main.cpp.
  *
  *  Contains the menu function and starts the program.
@@ -71,7 +72,7 @@ int main(int argc, char const *argv[])
 		{
 			cout << "-------------------------------------------------------" << endl;
 			int result = obj.calculatesExpression( obj.infixToPostfix( expression )  );
-			cout << ">>> Result: " << result << endl << endl;
+			cout << ">>> Result: " << result << endl;
 			cout << "-------------------------------------------------------" << endl << endl;
 		}
 	}

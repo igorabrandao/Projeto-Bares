@@ -1,3 +1,5 @@
+/*! \file */ 
+
 #include "Stack.h"
 
 template <class T>

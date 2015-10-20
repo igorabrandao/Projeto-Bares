@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,25 +83,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Queue&lt; T &gt; Member List</div>  </div>
+<div class="title">Queue&lt; Object &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a51466c2044496abb1dd976883d398238">back</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a5530ceb38c44db1c9642f84fa7f36c07">empty</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a1024da6524f54082d56d441393c87540">front</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a2030dc3d1fcded3192c594581c75bb09">makeEmpty</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a02ea784625fe33b5793d00c3b02b4878">pop</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a4d1b288024e0881880b2e915bc5498bf">print</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a7775cadca744a6b803576104b9988bf2">push</a>(const T &amp;_x)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#af73bb29c868f7b37f369c668f114bd9f">Queue</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#aa7eef1b427e24555780505de20e9acbc">~Queue</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#ac0c2c7c34ad2ab7801201fe09bb2dff0">back</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#adab45f498b3d53ed81b223a99d907191">back</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a273b92dd6d380dd461bb2203ff3e5a53">begin</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a797a5f8ab559bb1e636a30030da3f537">begin</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a45e1d4ef57d61616e2a128a590f70f26">clear</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a08844c38fff282f0f01e0c69fc2fcc2a">empty</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a570162d5481ce161b8f12f5379f38942">end</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a7f86a1b219786234bfbb6e1acd4e50e9">end</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a06df624af2f1db973beea31fed5d005a">erase</a>(iterator itr)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a421ea2bfa847d5e69f555b3be014a15b">erase</a>(iterator start, iterator end)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a90a5850623ee0ca10d7eb6749ba0d59a">find</a>(const Object &amp;obj) const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#ae7f65391f86d773e719f3882be406bb5">find</a>(const Object &amp;obj)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#ad0b349f69c52a779e7b74cf51eeca4a9">front</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a0788743651634c589242ffcc98d8d0c8">front</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#acc7d4d98022974ac5be20c66f71b78e5">insert</a>(iterator itr, const Object &amp;obj)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#ad4847fb600b514ca946d2b96de0ff6c1">operator=</a>(const Queue &amp;rhs)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a8b4d0946681a2e54af95da40c147a73b">pop</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#ae1c82e0459e8e02bf35b634a753a3d79">print</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#aa287e25d31d9dd0e68acc0fe3e5bba8b">push</a>(const Object &amp;obj)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a506bd34f654ca127f0a7356aee27d8f3">Queue</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#afee9ad30f0c9f8ea73562072a2e4ad6b">Queue</a>(const Queue &amp;rhs)</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#aa8b34d085734d85bd313fd040c12ee2f">size</a>() const </td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d56/classQueue.html#a5b6b7dd2378d94d0e95f5f8a644a384e">~Queue</a>()</td><td class="entry"><a class="el" href="../../d7/d56/classQueue.html">Queue&lt; Object &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 08:26:26 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 20 2015 14:48:25 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

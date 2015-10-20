@@ -1,3 +1,4 @@
+/*! \file */ 
 /*! \brief Bares.inl.
  *
  *  Implements the functions from Bares class.
@@ -23,42 +24,42 @@ Bares::~Bares()
 /********************************************//**
 * Convert infix to postfix exp_s.
 ***********************************************/
-Queue<string>
+queue<string>
 Bares::infixToPostfix( const string _exp )
 {
 	string symbol;					/*!< The current symbol to be classified */
-	string topSymbol;				/*!< Top symbom from top Queue */
-	Queue<string> _inputQueue;		/*!< The Queue with the input expression */
-	Queue<string> outputQueue; 		/*!< Output list with postfix format */
+	string topSymbol;				/*!< Top symbom from top queue */
+	queue<string> _inputqueue;		/*!< The queue with the input expression */
+	queue<string> outputqueue; 		/*!< Output list with postfix format */
 	Stack<string> StackOfOperators;	/*!< Stack of operators */
 
-	_inputQueue = stringToQueue( _exp );
+	_inputqueue = stringToQueue( _exp );
 
-	/*! Run until the Queue end */
-	while ( !_inputQueue.empty() )
+	/*! Run until the queue end */
+	while ( !_inputqueue.empty() )
 	{
 		/** Remover o simbolo da lista de entrada e armazenar em symbol */
-		symbol = _inputQueue.front();
-		_inputQueue.pop();
+		symbol = _inputqueue.front();
+		_inputqueue.pop();
 
 		/*! Se symbol for operando... entao */
 		if ( isOperand( symbol ) )
 		{
 			/* Enviar symbol direto para a fila de saida */
-			outputQueue.push( symbol );
+			outputqueue.push( symbol );
 		}
 		else if ( symbol == "(" ) /*!< Caso o symbol seja um abre parenteses */
 		{
 			/*! Joga o symbol na pilha */
 			StackOfOperators.push( symbol );
 		}
-		else 	/* Se symbol nao for operando nem abre parenteses */
+		else /*< Se symbol nao for operando nem abre parenteses */
 		{	
 			/*! 
 			 *	Se a pilha de operadores nao esta vazia 
 			 *	topSymbol recebe pela primeira vez o elemento do topo para poder
 			 * 	entrar no proximo while
-			 */
+			*/
 			if ( !StackOfOperators.empty() )
 			{
 				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
@@ -70,10 +71,11 @@ Bares::infixToPostfix( const string _exp )
 
 			char _topSymbol = *itrA;
 			char _symbol 	= *itrB;
+
 			/*!
 			 * 	Enquanto a pilha de operadores nao estiver vazia 
 			 *	e o simbolo do topo (topSymbol) ≥ symb faca... 
-			 */
+			*/
 			while( !StackOfOperators.empty() && hasPriority( _topSymbol, _symbol ) )
 			{
 				/*! topSymbol recebe o simbolo do topo da pilha de operadores */
@@ -82,7 +84,7 @@ Bares::infixToPostfix( const string _exp )
 				/* Se o simbolo do topo da pilha nao for parentesis */
 				if ( topSymbol != "(" && topSymbol != ")" )
 				{
-					outputQueue.push( topSymbol );	/*!< Insere o simbolo do topo da pilha na fila de saida */
+					outputqueue.push( topSymbol );	/*!< Insere o simbolo do topo da pilha na fila de saida */
 					StackOfOperators.pop(); 		/*!< Remove o operador ja utilizado da pilha */
 				}
 				else /*!< Se for um parentesis, apenas o retira da pilha */
@@ -106,15 +108,15 @@ Bares::infixToPostfix( const string _exp )
 		/*! Os simbolos parenteses nao entram para a fila de saida */
 		if ( topSymbol != "(" && topSymbol != ")" )
 		{
-			outputQueue.push( topSymbol ); /*! Se nao for parentesis, vai para a fila de saida */
+			outputqueue.push( topSymbol ); /*! Se nao for parentesis, vai para a fila de saida */
 		}
 	}
 
-	/*! Print the output Queue */
-	printQueue(outputQueue);
+	/*! Print the output queue */
+	printqueue(outputqueue);
 
-	/*! Returns the Queue in a posfix format */
-	return outputQueue;
+	/*! Returns the queue in a posfix format */
+	return outputqueue;
 }
 
 /********************************************//**
@@ -349,12 +351,10 @@ Bares::readExpressions( const string _filename )
 * @param _exp one infix expression 		
 * @returns an array where each position is an operator or an operand. 		
 *********************************************************************/
-Queue<string>
+queue<string>
 Bares::stringToQueue( const string _exp )
 {
-	Queue<string> expression;
-	//Stack<string> expression;
-	//vector<string> expression;
+	queue<string> expression;
 
 	string strItr; /*! Usado apenas para fins de teste */
 	string str;
@@ -372,7 +372,7 @@ Bares::stringToQueue( const string _exp )
 		}
 		else
 		{
-
+			/*! if not a blank space */
 			if ( str != "" )
 				expression.push(str);
 			
@@ -396,9 +396,9 @@ Bares::stringToQueue( const string _exp )
 * Calculates and evaluates the expression.
 ***********************************************/
 int 
-Bares::calculatesExpression( Queue<string> _fila ) 
+Bares::calculatesExpression( queue<string> _fila ) 
 {
- 	string symbol;	/*!< Receives one member of the expression for be checked. */
+ 	string symbol;		/*!< Receives one member of the expression for be checked. */
  	Stack<double> stk;	/*!< Auxiliary Stack to calculate the expression */
 
  	/*! Operands. */
@@ -407,12 +407,12 @@ Bares::calculatesExpression( Queue<string> _fila )
 
  	int result;	/*!< Store the result of the expression */
 
- 	/*! If the Queue isn't empty, calculate the expression */
+ 	/*! If the queue isn't empty, calculate the expression */
  	while ( !_fila.empty() ) 
  	{
- 		symbol = _fila.front(); 	/*!< Receives the first member of the Queue */
+ 		symbol = _fila.front(); 	/*!< Receives the first member of the queue */
 
- 		/*! Since symb is the first element, we remove it from the Queue. */
+ 		/*! Since symb is the first element, we remove it from the queue. */
  		_fila.pop();
 
  		/*! If the member is operand. */
@@ -473,18 +473,18 @@ Bares::calculatesExpression( Queue<string> _fila )
 }
 
 /********************************************//**
-* Print the Queue.
+* Print the queue.
 ***********************************************/
 void
-Bares::printQueue( Queue<string> _Queue )
+Bares::printqueue( queue<string> _queue )
 {
 	string str;
 	cout << "[ ";
-	while( !_Queue.empty() )
+	while( !_queue.empty() )
 	{
-		str = _Queue.front();
+		str = _queue.front();
 		cout << str << " ";
-		_Queue.pop();
+		_queue.pop();
 	}
 	cout << "]" << endl;
 }
@@ -493,34 +493,34 @@ Bares::printQueue( Queue<string> _Queue )
 * Check if the expression has sintax error.
 ***********************************************/
 bool
-Bares::hasSyntaxError( Queue<string> _infixQueue )
+Bares::hasSyntaxError( queue<string> _infixqueue )
 {
 	/*! Auxiliary variables */
 	bool bResult = false;
 
-	/*!< Auxiliary Queues to test erros */
-	Queue<string> QueueTest1(_infixQueue);
-	Queue<string> QueueTest2(_infixQueue);
-	Queue<string> QueueTest3(_infixQueue);
-	Queue<string> QueueTest4(_infixQueue);
-	Queue<string> QueueTest5(_infixQueue);
-	Queue<string> QueueTest6(_infixQueue);
-	Queue<string> QueueTest7(_infixQueue);
-	Queue<string> QueueTest8(_infixQueue);
+	/*!< Auxiliary queues to test erros */
+	queue<string> queueTest1(_infixqueue);
+	queue<string> queueTest2(_infixqueue);
+	queue<string> queueTest3(_infixqueue);
+	queue<string> queueTest4(_infixqueue);
+	queue<string> queueTest5(_infixqueue);
+	queue<string> queueTest6(_infixqueue);
+	queue<string> queueTest7(_infixqueue);
+	queue<string> queueTest8(_infixqueue);
 
 	/********************************************//**
 	* ERROR 01: Invalid numeric constant
 	***********************************************/
-	/*while ( !QueueTest1.empty() )
+	/*while ( !queueTest1.empty() )
 	{*/
 		/*! Check the interval */
-		/*if ( !(QueueTest1.front() > (-32767) && QueueTest1.front() < 32767) )
+		/*if ( !(queueTest1.front() > (-32767) && queueTest1.front() < 32767) )
 		{
 			cout << ">>> Invalid Operator..." << endl;
 			return true;
 		}
 
-		QueueTest1.pop();
+		queueTest1.pop();
 	}*/
 
 	/********************************************//**
@@ -529,17 +529,17 @@ Bares::hasSyntaxError( Queue<string> _infixQueue )
 	int operandsInSeq 	= 0;
 	int operatorsInSeq = 0;
 
-	while ( !QueueTest2.empty() )
+	while ( !queueTest2.empty() )
 	{
-		if ( isOperand(QueueTest2.front()) )
+		if ( isOperand(queueTest2.front()) )
 		{	
 			operandsInSeq += 1;
 			if ( operatorsInSeq == 1 )
 				operatorsInSeq--;
 		}
-		else if ( isOperator( QueueTest2.front() ) )
+		else if ( isOperator( queueTest2.front() ) )
 		{
-			if ( QueueTest2.front() != "(" && QueueTest2.front() != ")")
+			if ( queueTest2.front() != "(" && queueTest2.front() != ")")
 			{
 				operatorsInSeq += 1; 	/*!< Increase the num of operators in sequence */  
 				if ( operandsInSeq == 1 )
@@ -553,7 +553,7 @@ Bares::hasSyntaxError( Queue<string> _infixQueue )
 			cout << ">>> Missing operand..." << endl;
 			return true;
 		}
-		QueueTest2.pop();
+		queueTest2.pop();
 	}
 	if ( operatorsInSeq == 1 )
 	{
@@ -564,29 +564,29 @@ Bares::hasSyntaxError( Queue<string> _infixQueue )
 	/********************************************//**
 	* ERROR 03: Invalid operand
 	***********************************************/
-	while ( !QueueTest3.empty() )
+	while ( !queueTest3.empty() )
 	{
-		if ( !isOperand( QueueTest3.front() ) && !isOperator( QueueTest3.front() ) )
+		if ( !isOperand( queueTest3.front() ) && !isOperator( queueTest3.front() ) )
 		{
-			cout << ">>> Operand " << QueueTest3.front() << " is invalid..." << endl;
+			cout << ">>> Operand " << queueTest3.front() << " is invalid..." << endl;
 			return true;
 		}
 
-		QueueTest3.pop();
+		queueTest3.pop();
 	}
 
 	/********************************************//**
 	* ERROR 04: Invalid operator
 	***********************************************/
 	// Handle invalid operands
-	while ( !QueueTest4.empty() )
+	while ( !queueTest4.empty() )
 	{
-		if ( isInvalidOperator( QueueTest4.front() ) )
+		if ( isInvalidOperator( queueTest4.front() ) )
 		{
 			cout << ">>> Invalid Operator..." << endl;
 			return true;
 		}
-		QueueTest4.pop();
+		queueTest4.pop();
 	}
 
 	/********************************************//**
@@ -594,22 +594,22 @@ Bares::hasSyntaxError( Queue<string> _infixQueue )
 	***********************************************/
 	int inParentesis = 0;
 
-	while ( !QueueTest6.empty() )
+	while ( !queueTest6.empty() )
 	{
-		if( QueueTest6.front() == "(" )
+		if( queueTest6.front() == "(" )
 			inParentesis++;
 		
 		/*! Se fechou um parentesis sem antes abri-lo dá erro*/
-		if ( QueueTest6.front() == ")" && inParentesis == 0 )
+		if ( queueTest6.front() == ")" && inParentesis == 0 )
 		{
 			cout << ">>> Invalid escope closer..." << endl;
 			return true;
 		}
 
-		if ( QueueTest6.front() == ")" && inParentesis == 1 )
+		if ( queueTest6.front() == ")" && inParentesis == 1 )
 			inParentesis--;
 
-		QueueTest6.pop();
+		queueTest6.pop();
 	}
 
 	/********************************************//**
@@ -617,16 +617,16 @@ Bares::hasSyntaxError( Queue<string> _infixQueue )
 	***********************************************/
 	inParentesis = 0;
 
-	while ( !QueueTest4.empty() )
+	while ( !queueTest4.empty() )
 	{
-		if ( QueueTest4.front() == "(" )
+		if ( queueTest4.front() == "(" )
 			inParentesis++;
-		if ( QueueTest4.front() == ")" && inParentesis == 1 )
+		if ( queueTest4.front() == ")" && inParentesis == 1 )
 		{
 			inParentesis--; 
 		}
 
-		QueueTest4.pop();
+		queueTest4.pop();
 	}
 
 	if (inParentesis != 0 )

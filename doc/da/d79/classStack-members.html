@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,21 +89,31 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>empty</b>() (defined in <a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isFull</b>() (defined in <a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#ac747373558caee14a9c533af94c283cb">makeEmpty</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a356e21fcce0a4cead13bbb8a60ea2e7e">pop</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a96ddf41993ca2c9d48df6f5e1fb50d85">print</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a862d2436cd8a44008014669ad624cc5d">push</a>(const T &amp;_x)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>size</b>() (defined in <a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#aefee698059467258bbd79045aca62a63">Stack</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a2f6dfde5f5ca648a7724e251354f8ce3">Stack</a>(int sz_)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a18d6e38207ff3ff9ef351e34538e9a0e">top</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a74af70a98cfe351f8d9c8919612ff5a9">begin</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a9db6b5e9901975c1b6e5cb0bb6b24a33">begin</a>() const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a0992f5d5b74abd9c717e108ecd6dbb9c">clear</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#acd2dede1b88b54124c480fb333ca5e8c">empty</a>() const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a7c9c335c4a592cdded243f9203b926ed">end</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a9b17693fc3d52ac073dfb52438a515cb">end</a>() const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a15a6a7dcbfceb343e1457cc558a5fede">erase</a>(iterator itr)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a1e1d16564dc0c8f5b48b9ca1f96ce58c">erase</a>(iterator start, iterator end)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a158bd3db2148dc6414d7d08e9232b9f7">find</a>(const T &amp;obj) const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a6a9981e123edbb804b6332612e85d730">find</a>(const T &amp;obj)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#ac542bb78c89005a58682fc2e5b9966e6">insert</a>(iterator itr, const T &amp;obj)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a2c885f7f4690c1a1727668c6bc7314e9">operator=</a>(const Stack &amp;rhs)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a2723aec5c7e2611b97fcffeb7709de33">pop</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a96ddf41993ca2c9d48df6f5e1fb50d85">print</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#af6370eb8362fd6b4612ba0bfd14c7599">push</a>(const T &amp;obj)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a686bce545fd9a042fe1193c2406d0301">size</a>() const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#aefee698059467258bbd79045aca62a63">Stack</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a7ce36ee70a9a9198ceaee93f452297a8">Stack</a>(const Stack &amp;rhs)</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a5408496074d240c8b9bbc37d277e590f">top</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a051522be65c8ee816387c7159ea2cf62">top</a>() const </td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d4/dc1/classStack.html#a9e7a00875aefbdac560ab189b7bc61d1">~Stack</a>()</td><td class="entry"><a class="el" href="../../d4/dc1/classStack.html">Stack&lt; T &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 08:26:26 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 20 2015 14:48:25 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -22,6 +22,7 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
 #include <vector>
 #include <fstream> /*!< ifstream */
 #include <stdexcept>
@@ -34,24 +35,27 @@
 using namespace std;
 
 // ******************PUBLIC OPERATIONS*********************
-// string infix2Postfix( _exp )					--> Convert infix to postfix expressions
+// queue<string> infixToPostfix( _exp )			--> Convert infix to postfix expressions
 // int hasPriority( _exp1, _exp2 )				--> Check wich operator has a higher precedence
 // int isRightAssociative( _operator )			--> Check whether an operator is right associative
 // int getOperatorPrecedence( _operator )		--> Get the operator precedence
 // bool isOperator( _char )						--> Check whether a character is operator symbol
+// bool isOperator( _str )						--> Check whether a character is operator symbol
 // bool isOperand( _char )						--> Check whether a character is alphanumeric chanaracter
+// bool isOperand( _str )						--> Check whether a character is alphanumeric chanaracter
+// bool isInvalidOperator( _str )				--> Check if it is an invalid operator
 // int performOperation( _operator, _operand1, _operand2 )	--> Perform an operation 
 // vector<string> readExpressions( _filename )	--> Read Expression from file
-// Queue<string> stringToQueue( _exp )			--> Convert the expression to Queue
+// queue<string> stringToQueue( _exp )			--> Convert the expression to queue
 // int calculatesExpression( _fila )			--> Calculate the expression
-// void printQueue( _Queue )					--> Print the Queue
-// void hasSyntaxError( _infixQueue )			--> Check if the sintax has errors
+// void printqueue( _queue )					--> Print the queue
+// void hasSyntaxError( _infixqueue )			--> Check if the sintax has errors
 // string trim( _str )							--> Remove white spaces from expression
 
 // ***********************ERRORS****************************
 // std::underflow_error thrown if needed.
 
-/*! Bares template class */
+/*! Bares class */
 class Bares
 {
 	/*!
@@ -64,27 +68,27 @@ class Bares
         ~Bares();  			/*!< Destructor */
 
 		/*! Basic members */
-		Queue<string> infixToPostfix( const string _exp );
+		queue<string> infixToPostfix( const string _exp );
 		int hasPriority( const char _exp1, const char _exp2 );
 		int isRightAssociative( const char _operator );
 		int getOperatorPrecedence( const char _operator );
 
 		bool isOperator( const char _char );
 		bool isOperator( const string _str );
-		bool isInvalidOperator( const string _str );
 		bool isOperand( const char _char );
 		bool isOperand( const string _str );
+		bool isInvalidOperator( const string _str );
 
 		int performOperation( const char _operator, const int _operand1, const int _operand2 );
 
 		vector<string> readExpressions( const string _filename );
-		Queue<string> stringToQueue( const string _exp );
-		int calculatesExpression( Queue<string> _fila );
-		void printQueue( Queue<string> _Queue );
-		bool hasSyntaxError( Queue<string> _infixQueue );
+		queue<string> stringToQueue( const string _exp );
+		int calculatesExpression( queue<string> _fila );
+		void printqueue( queue<string> _queue );
+		bool hasSyntaxError( queue<string> _infixqueue );
 
 		string trim( const string & _str );
-	
+
 	/*!
      * Private section
     */

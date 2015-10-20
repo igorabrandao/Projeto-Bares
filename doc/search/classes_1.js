@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node',['Node',['../d8/d49/structNode.html',1,'']]]
+  ['const_5fiterator',['const_iterator',['../dd/d39/classQueue_1_1const__iterator.html',1,'Queue']]],
+  ['const_5fiterator',['const_iterator',['../d2/d48/classStack_1_1const__iterator.html',1,'Stack']]]
 ];

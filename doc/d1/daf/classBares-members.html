@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#aa23a857b1938245ecd9e4aa262a4241c">calculatesExpression</a>(queue&lt; string &gt; _fila)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a7d5088ba375a0d20e7c8ff03654d296c">getOperatorPrecedence</a>(const char _operator)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a44ec6575251744efd5bda98b48cf8ab0">hasPriority</a>(const char _exp1, const char _exp2)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#add9f283fb57d004221d2531f363fdfe9">hasSyntaxError</a>(queue&lt; string &gt; _infixQueue)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#abddfa01b61b1eea8f6c7cdbf6de443bb">hasSyntaxError</a>(queue&lt; string &gt; _infixqueue)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#abae15af329e7c60dc9c400dfe5860c68">infixToPostfix</a>(const string _exp)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a0f2eb81e9858d213fff833dd2fd5febb">isInvalidOperator</a>(const string _str)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#abf71968d40bec53d490a7f6b8f513667">isOperand</a>(const char _char)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
@@ -101,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a8a4418affe2186c85618916f2679fd33">isOperator</a>(const string _str)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#ab77d39a52f106a37768c7d3652bc91a6">isRightAssociative</a>(const char _operator)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#aa720ee53db94a41263efdfd2fdcacbc7">performOperation</a>(const char _operator, const int _operand1, const int _operand2)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a14e52eb479c1e8d3536c7e153c23101d">printQueue</a>(queue&lt; string &gt; _queue)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#afa4817dab7b4015a3099af7be90908c7">printqueue</a>(queue&lt; string &gt; _queue)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#ad9f0d39d8d9deb9c6be98da6867e7436">readExpressions</a>(const string _filename)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../df/dd8/classBares.html#ac77ac87606b063cee8b0e4eaa0eda601">stringToQueue</a>(const string _exp)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/dd8/classBares.html#a54a1262bb0d1912263f4d5fd0149b858">trim</a>(const string &amp;_str)</td><td class="entry"><a class="el" href="../../df/dd8/classBares.html">Bares</a></td><td class="entry"></td></tr>
@@ -109,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 08:26:26 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 20 2015 14:48:25 for Bares by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
